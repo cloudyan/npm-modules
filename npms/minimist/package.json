@@ -1,0 +1,14 @@
+{
+  "name": "@deepjs/learn-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "node scripts/test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "minimist": "^1.2.0"
+  }
+}
