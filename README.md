@@ -2,6 +2,6 @@
 
 学习 npm 经典模块
 
-- [minimist](./minimist)
-- [inquirer](./inquirer)
-- [execa](./execa)
+- [minimist](./npms/minimist)
+- [inquirer](./npms/inquirer)
+- [execa](./npms/execa)
