@@ -1,6 +1,6 @@
 # inquirer
 
-一个用户与命令行交互的工具（guide风格的命令行——提问-回答模式的命令行），inquirer 提供了一个漂亮的界面和提出问题流的方式。
+[inquirer](https://www.npmjs.com/package/inquirer) 一个用户与命令行交互的工具（guide风格的命令行——提问-回答模式的命令行），inquirer 提供了一个漂亮的界面和提出问题流的方式。
 
 - guide风格的命令行（提问-回答模式的命令行）—— inquirer
 - git风格命令行开发工具——commander.js
@@ -31,7 +31,7 @@ inquirer.prompt(promptList).then(answers => {
 
 提问的类型支持 `input`, `confirm`, `list`, `rawlist`, `expand`, `checkbox`, `password`, `editor`
 
-具体使用参见 [https://blog.csdn.net/qq_26733915/article/details/80461257](https://blog.csdn.net/qq_26733915/article/details/80461257)
+[examples](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer/examples)
 
 参考：
 

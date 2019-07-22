@@ -1,14 +1,14 @@
-const execa = require("execa");
+const execa = require('execa');
 
-execa("echo",["hello world"]).then(result => {
+execa('echo', ['hello world']).then(result => {
   console.log(result.stdout);
   //=> 'hello world'
 });
-execa("grep",["hello", "index.js"]).then(result => {
+execa('grep', ['hello', 'index.js']).then(result => {
   console.log(result.stdout);
 }).catch(err => console.log(err));
 
-execa("ls").then(result => {
+execa('ls').then(result => {
   console.log(result);
   console.log(result.stdout);
 });
