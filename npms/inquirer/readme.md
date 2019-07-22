@@ -15,23 +15,46 @@
 
 ## 使用
 
+[examples](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer/examples)
+
 **语法**
 
 ```js
 const inquirer = require('inquirer');
 
 const promptList = [
+  // Pass your questions in here
   // 具体交互内容
 ];
 
-inquirer.prompt(promptList).then(answers => {
-  console.log(answers); // 返回的结果
-})
+inquirer
+  .prompt(promptList)
+  .then(answers => {
+    // 返回的结果
+    // Use user feedback for... whatever!!
+  });
 ```
 
 提问的类型支持 `input`, `confirm`, `list`, `rawlist`, `expand`, `checkbox`, `password`, `editor`
 
 [examples](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer/examples)
+
+## 详细 api
+
+[Inquirer.js Api](https://github.com/SBoudrias/Inquirer.js#objects)
+
+- type
+- name
+- message
+- default
+- choices
+- validate
+- filter
+- transformer
+- when
+- pageSize
+- prefix
+- suffix
 
 参考：
 

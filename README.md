@@ -1,14 +1,28 @@
 # learn-npm-modules
 
-学习 npm 经典模块
+学习 nodejs，从下面的方向开始
 
-nodejs 模块
+- nodejs 官方api
+- nodejs 命令行、工具方向优秀 npm 模块
+- nodejs openApi、server服务方向优秀 npm 模块
+- 其他优秀的 npm 模块
+
+## nodejs 官方 API
+
+官方 API
+
+## nodejs 命令行、工具方向优秀 npm 模块
 
 - [minimist](./npms/minimist)
 - [inquirer](./npms/inquirer)
 - [execa](./npms/execa)
 
-其他模块
+## nodejs openApi、server服务方向优秀 npm 模块
+
+- koa
+- pm2
+
+## 其他优秀的 npm 模块
 
 - [dayjs](https://github.com/iamkun/dayjs)
 - [timeago.js](https://github.com/hustcc/timeago.js)
