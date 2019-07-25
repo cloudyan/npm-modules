@@ -25,6 +25,7 @@
 - [nodemon](./npms/nodemon)
 - [supervisor](./npms/supervisor)
 - [pm2](./npms/pm2)
+- [loadtest](./npms/loadtest)
 - 熟悉 alinode 性能监测
 
 ## 其他优秀的 npm 模块
