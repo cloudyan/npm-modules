@@ -4,7 +4,7 @@
 
 直接参看 [nodemon 基本配置与使用](https://www.cnblogs.com/JuFoFu/p/5140302.html)
 
-node 有一个 npm 模块 `supervisior` 也是用来监控进程的，不过除了 `supervisior` 外，还有很多其他的工具，从 github 的评分上看，比较热门的有 `forever`，`nodemon`，`node-dev`, pm2 不太适合监控文件变更
+node 有一个 npm 模块 `supervisor` 也是用来监控进程的，不过除了 `supervisor` 外，还有很多其他的工具，从 github 的评分上看，比较热门的有 `forever`, `nodemon`, `node-dev`, pm2
 
 `nodemon` 用来监视 node.js 应用程序中的任何更改并自动重启服务，非常适合用在开发环境中。
 

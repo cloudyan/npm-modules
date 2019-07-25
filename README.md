@@ -16,13 +16,14 @@
 - [execa](./npms/execa) Better `child_process`
 - [minimist](./npms/minimist)
 - [inquirer](./npms/inquirer)
-- nodemon
-- supervisior
 - [babel](./npms/babel)
+- [cross-env](./npms/cross-env)
 
 ## nodejs openApi、server服务方向优秀 npm 模块
 
 - [koa](./npms/koa)
+- [nodemon](./npms/nodemon)
+- [supervisor](./npms/supervisor)
 - [pm2](./npms/pm2)
 - 熟悉 alinode 性能监测
 
