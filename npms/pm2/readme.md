@@ -100,5 +100,6 @@ pm2是一个带有负载均衡功能的应用进程管理器，类似有supervis
 
 参考：
 
+- https://wohugb.gitbooks.io/pm2/content/features/quick-start.html
 - https://juejin.im/post/5be406705188256dbb5176f9
 - https://linuxeye.com/435.html
