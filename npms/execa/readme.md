@@ -1,6 +1,6 @@
 # execa
 
-- [execa](https://www.npmjs.com/package/execa)
+- [execa](https://www.npmjs.com/package/execa) better `child_process`。
 
 execa 是一个子进程管理工具（改进 child_process 的方法），是可以调用shell和本地外部程序的javascript封装。
 

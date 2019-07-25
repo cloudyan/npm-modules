@@ -13,14 +13,18 @@
 
 ## nodejs 命令行、工具方向优秀 npm 模块
 
+- [execa](./npms/execa) Better `child_process`
 - [minimist](./npms/minimist)
 - [inquirer](./npms/inquirer)
-- [execa](./npms/execa)
+- nodemon
+- supervisior
+- [babel](./npms/babel)
 
 ## nodejs openApi、server服务方向优秀 npm 模块
 
-- koa
-- pm2
+- [koa](./npms/koa)
+- [pm2](./npms/pm2)
+- 熟悉 alinode 性能监测
 
 ## 其他优秀的 npm 模块
 
@@ -31,3 +35,10 @@
 - [event-emitter](https://github.com/antvis/event-emitter) @antvis
 - [bluebird](https://github.com/petkaantonov/bluebird)
 - [markdown 编写格式规范检查](https://github.com/hustcc/lint-md)
+
+参考：
+
+- [awesome-javascript](https://github.com/sorrycc/awesome-javascript) awesome系列必属精品，javascript资源清单 github关注数>5000
+- [awesome-javascript-cn](https://github.com/jobbole/awesome-javascript-cn) 中文文档清单
+- [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs) awesome系列必属精品，Nodejs 资源的收集 github 关注数> 11000
+- [node-lessons](https://github.com/alsotang/node-lessons) Node.js 包教不包会
