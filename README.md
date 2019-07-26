@@ -18,6 +18,8 @@
 - [inquirer](./npms/inquirer)
 - [babel](./npms/babel)
 - [cross-env](./npms/cross-env)
+- [debug](./npms/debug)
+- [log4js](./npms/log4js)
 
 ## nodejs openApi、server服务方向优秀 npm 模块
 
@@ -26,6 +28,9 @@
 - [supervisor](./npms/supervisor)
 - [pm2](./npms/pm2)
 - [loadtest](./npms/loadtest)
+- [express](./npms/express)
+  - winston
+  - express-winston
 - 熟悉 alinode 性能监测
 
 ## 其他优秀的 npm 模块
