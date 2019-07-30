@@ -117,6 +117,7 @@ mongo -u test_user -p [password]
 参考：
 
 - https://www.cnblogs.com/clsn/p/8214194.html
+- https://www.cnblogs.com/huangxincheng/category/355399.html
 - https://docs.mongodb.com/guides/
 - https://www.mongodb.org.cn/manual/
 - https://www.runoob.com/mongodb/mongodb-create-database.html
