@@ -55,15 +55,28 @@ TODO: 目前还有几个问题
 
 ## 添加用户
 
-```mongod
-use nblog
-db.createUser(
+进入数据库命令行添加
+
+```bash
+mongo
+> use nblog
+> db.createUser(
   {
     user: "test1",
     pwd: "test1",
-    roles: [ { role: "readWrite", db: "nblog" } ]
+    roles: [{ role: "readWrite", db: "nblog" }]
   }
 )
+```
+
+使用图形化界面
+
+```bash
+Open Shell
+
+输入命令后 `cmd + R` 执行
+
+或 选择 Users 右键 -> Add User
 ```
 
 **注意：**对于非 admin 库，不能拥有 clusterAdmin、readAnyDatabase、readWriteAnyDatabase、userAdminAnyDatabase、dbAdminAnyDatabase 这些角色。
