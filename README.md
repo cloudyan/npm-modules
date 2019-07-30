@@ -18,8 +18,12 @@
 - [inquirer](./npms/inquirer)
 - [babel](./npms/babel)
 - [cross-env](./npms/cross-env)
-- [debug](./npms/debug)
-- [log4js](./npms/log4js)
+- [jsonwebtoken](./npms/jsonwebtoken)
+- log
+  - [log4js](./npms/log4js)
+  - [bunyan](./bunyan)
+  - [debug](./npms/debug)
+  - winston
 
 ## nodejs openApi、server服务方向优秀 npm 模块
 
@@ -29,8 +33,13 @@
 - [pm2](./npms/pm2)
 - [loadtest](./npms/loadtest)
 - [express](./npms/express)
-  - winston
   - express-winston
+  - path-to-regexp 是Express风格的路径正则工具
+- 模板引擎
+  - https://blog.csdn.net/chszs/article/details/58606201
+- [mongodb](./npms/mongodb)
+  - [mongodb](https://zhuanlan.zhihu.com/p/24308524)
+  - [mongoose](https://mongoosejs.com/)
 - 熟悉 alinode 性能监测
 
 ## 其他优秀的 npm 模块
