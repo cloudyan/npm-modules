@@ -31,9 +31,9 @@ pm2是一个带有负载均衡功能的应用进程管理器，类似有supervis
 
     ```bash
     pm2 start app.js
-    pm2 start app.js --name my-api   #my-api为PM2进程名称
-    pm2 start app.js -i 0           #根据CPU核数启动进程个数
-    pm2 start app.js --watch   #实时监控app.js的方式启动，当app.js文件有变动时，pm2会自动reload
+    pm2 start app.js --name my-api   # my-api为PM2进程名称
+    pm2 start app.js -i 0            # 根据CPU核数启动进程个数
+    pm2 start app.js --watch   # 实时监控app.js的方式启动，当app.js文件有变动时，pm2会自动reload
     ```
 
 2. 查看进程
@@ -103,3 +103,5 @@ pm2是一个带有负载均衡功能的应用进程管理器，类似有supervis
 - https://wohugb.gitbooks.io/pm2/content/features/quick-start.html
 - https://juejin.im/post/5be406705188256dbb5176f9
 - https://linuxeye.com/435.html
+- https://www.cnblogs.com/chyingp/p/pm2-documentation.html
+- http://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/

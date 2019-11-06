@@ -2,6 +2,10 @@
 
 [supervisor](https://www.npmjs.com/package/supervisor)
 
+- supervisor: 一般用作开发环境的使用。
+- forever: 管理多个站点，一般每个站点的访问量不大的情况，不需要监控。
+- PM2: 网站的访问量比较大，需要完整的监控页面。
+
 `supervisor` 监听文件变化，刷新运行中的服务脚本，使用 `pm2`、`forever` 也可以
 
 在开发nodejs程序，调试的时候，无论你修改了代码的哪一部分，都需要重启服务才能生效。这是因为 Node.js 只有在第一次引用到某部份时才会去解析脚本文件，以后都会直接访问内存，避免重复载入。

@@ -1,4 +1,4 @@
-# learn-npm-modules
+# npm-modules
 
 学习 nodejs，从下面的方向开始
 
@@ -24,6 +24,7 @@
   - [bunyan](./bunyan)
   - [debug](./npms/debug)
   - winston
+- chokidar
 
 ## nodejs openApi、server服务方向优秀 npm 模块
 
@@ -42,7 +43,7 @@
   - [mongoose](https://mongoosejs.com/)
 - 熟悉 alinode 性能监测
 
-## 其他优秀的 npm 模块
+## 优秀的 npm 模块
 
 - [dayjs](https://github.com/iamkun/dayjs)
 - [timeago.js](https://github.com/hustcc/timeago.js)
@@ -51,6 +52,7 @@
 - [event-emitter](https://github.com/antvis/event-emitter) @antvis
 - [bluebird](https://github.com/petkaantonov/bluebird)
 - [markdown 编写格式规范检查](https://github.com/hustcc/lint-md)
+- [rxjs](https://cn.rx.js.org/manual/index.html)
 
 参考：
 

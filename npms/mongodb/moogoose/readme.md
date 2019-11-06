@@ -1,6 +1,10 @@
 # mongoose
 
-[mongoose](https://mongoosejs.com/) 一款为异步工作环境设计的 MongoDB 对象建模工具。
+[mongoose](https://mongoosejs.com/) 是一款为异步工作环境设计的 MongoDB 对象建模工具。
+
+schema是mongoose里会用到的一种数据模式，可以理解为表结构的定义；每个schema会映射到mongodb中的一个collection，它不具备操作数据库的能力
+
+定义好了Schema，接下就是生成Model。model是由schema生成的模型，可以对数据库的操作
 
 - Schema  : 一种以文件形式存储的数据库模型骨架，不具备数据库的操作能力
 - Model   : 由Schema发布生成的模型，具有抽象属性和行为的数据库操作对
