@@ -1,5 +1,7 @@
 # npm-modules
 
+**分两部分**: 1 学使用, 2 学源码原理 [source](./source.md)
+
 学习 nodejs，从下面的方向开始
 
 - nodejs 官方api
