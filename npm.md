@@ -7,3 +7,7 @@
 - `npm ci` 只能一次安装整个项目：使用此命令无法添加单个依赖项。
 - 如果 `node_modules` 已经存在，它将在 `npm ci` 开始安装之前自动删除。
 - 它永远不会写入 `package.json` 或任何包锁：安装基本上是冻结的。
+
+参考：
+
+- https://www.cnblogs.com/tzyy/p/5193811.html#_h1_31
