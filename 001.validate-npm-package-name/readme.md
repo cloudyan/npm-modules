@@ -146,11 +146,6 @@ var validate = module.exports = function (name) {
   // 包名不能包含 non-url-safe 字符 (这里可以复习下 url 参数处理)
   // 关于 encodeURIComponent 不转义哪些字符 `A-Z a-z 0-9 - _ . ! ~ * ' ( )` 其他都转义
   // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
-  // function fixedEncodeURIComponent (str) {
-  //   return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
-  //     return '%' + c.charCodeAt(0).toString(16).toUpperCase();
-  //   });
-  // }
   if (encodeURIComponent(name) !== name) {
     // Maybe it's a scoped package name, like @user/package
     var nameMatch = name.match(scopedPackagePattern)
@@ -180,5 +175,20 @@ var done = function (warnings, errors) {
   if (!result.warnings.length) delete result.warnings
   if (!result.errors.length) delete result.errors
   return result
+}
+```
+
+## 知识点
+
+- match
+- non-url-safe
+  - encodeURIComponent
+  - encodeURI
+
+```js
+function fixedEncodeURIComponent (str) {
+  return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+    return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+  });
 }
 ```
