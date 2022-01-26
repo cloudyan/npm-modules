@@ -1,9 +1,9 @@
 # validate-npm-package-name 检测 npm 包是否符合标准
 
-- npm: https://www.npmjs.com/package/validate-npm-package-name
-- source: https://github.com/npm/validate-npm-package-name
+- https://www.npmjs.com/package/validate-npm-package-name
+- https://github.com/npm/validate-npm-package-name
 
-目标
+## 目标
 
 - 了解作用和使用场景
 - 源码分析
