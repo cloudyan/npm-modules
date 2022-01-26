@@ -1,4 +1,4 @@
-# axios/utils 工具函数
+# `axios/lib/utils` 工具函数
 
 axios 中的[工具函数](https://github.com/axios/axios/blob/master/lib/utils.js)
 

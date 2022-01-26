@@ -13,4 +13,4 @@
 
 - [babel 7 教程](https://blog.zfanw.com/babel-js/)
 
-具体使用及示例，参看 learn-babel
+具体使用及示例，参看 [learn-babel](https://github.com/cloudyan/learn-babel)

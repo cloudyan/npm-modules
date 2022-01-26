@@ -7,14 +7,20 @@
 
 这个项目有停了很长一段时间, 现在重新开始.
 
-参考:
+## 列表
+
+- 001.[validate-npm-package-name] 检测 npm 包是否符合标准
+- 002.[axios/lib/utils] axios 中 utils 工具函数
+- 003.[@vuejs/shared] vue3 中 shared 工具函数
+- 004.[promisify] callback promisify 化
+- 005.[only-allow] 代码统一规范团队包管理器的神器
+- 006.[install-pkg] 以编程方式安装包。自动检测包管理器（npm、yarn 和 pnpm）。
+- 007.[configstore] 轻松加载和持久化配置，无需考虑位置和方式
+
+学习参考:
 
 - [【必读】每周一起学习200行源码共读活动介绍](https://www.yuque.com/ruochuan12/topics/1)
 - [每天一个npm包](https://www.zhihu.com/people/xu-yi-zong-13/posts)
-
-## 列表
-
-
 
 学习 nodejs，从下面的方向开始
 
