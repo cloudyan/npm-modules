@@ -1,6 +1,20 @@
 # npm-modules
 
-**分两部分**: 1 学使用, 2 学源码原理 [source](./source.md)
+每天一个 npm 包:
+
+1. 学使用
+2. 学源码
+
+这个项目有停了很长一段时间, 现在重新开始.
+
+参考:
+
+- [【必读】每周一起学习200行源码共读活动介绍](https://www.yuque.com/ruochuan12/topics/1)
+- [每天一个npm包](https://www.zhihu.com/people/xu-yi-zong-13/posts)
+
+## 列表
+
+
 
 学习 nodejs，从下面的方向开始
 
