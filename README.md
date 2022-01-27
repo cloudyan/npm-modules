@@ -1,26 +1,35 @@
 # npm-modules
 
-每天一个 npm 包:
+这个项目有停了很长一段时间, 现在重新开始。并将这个库重新定位为源码系列。
 
 1. 学使用
 2. 学源码
-
-这个项目有停了很长一段时间, 现在重新开始.
-
-## 列表
-
-- 001.[validate-npm-package-name] 检测 npm 包是否符合标准
-- 002.[axios/lib/utils] axios 中 utils 工具函数
-- 003.[@vuejs/shared] vue3 中 shared 工具函数
-- 004.[promisify] callback promisify 化
-- 005.[only-allow] 代码统一规范团队包管理器的神器
-- 006.[install-pkg] 以编程方式安装包。自动检测包管理器（npm、yarn 和 pnpm）。
-- 007.[configstore] 轻松加载和持久化配置，无需考虑位置和方式
 
 学习参考:
 
 - [【必读】每周一起学习200行源码共读活动介绍](https://www.yuque.com/ruochuan12/topics/1)
 - [每天一个npm包](https://www.zhihu.com/people/xu-yi-zong-13/posts)
+
+```js
+循序渐进
+借助调试
+理清主线
+查阅资料
+总结记录
+```
+
+## 列表
+
+- 001.[【validate-npm-package-name】检测 npm 包是否符合标准](./001.validate-npm-package-name/readme.md)
+- 002.[【axios/lib/utils】axios 中 utils 工具函数](./101.axios/utils.md)
+- 003.[【remote-git-tags】callback promisify 化的 Node.js 源码实现](./003.remote-git-tags/readme.md)
+- 004.[【only-allow】一行代码统一规范团队包管理器的神器](./004.only-allow/readme.md)
+- 005.[【install-pkg】 以编程方式安装包。自动检测包管理器（npm、yarn 和 pnpm）]
+- 006.[【configstore】 轻松加载和持久化配置，无需考虑位置和方式]
+- 008.[【@vuejs/shared】 vue3 中 shared 工具函数](./102.vuejs/shared.md)
+- 101.[axios] axios 分析
+- 102.[vuejs] vue 分析
+
 
 学习 nodejs，从下面的方向开始
 
