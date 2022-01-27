@@ -25,7 +25,8 @@
 - 003.[【remote-git-tags】callback promisify 化的 Node.js 源码实现](./003.remote-git-tags/readme.md)
 - 004.[【only-allow】一行代码统一规范团队包管理器的神器](./004.only-allow/readme.md)
 - 005.[【install-pkg】 以编程方式安装包。自动检测包管理器（npm、yarn 和 pnpm）](./005.pkg-install/readme.md)
-- 006.[【configstore】 轻松加载和持久化配置，无需考虑位置和方式]
+- 006.[【await-to-js】流程控制](./006.await-to-js/readme.md)
+- 007.[【configstore】 轻松加载和持久化配置，无需考虑位置和方式]
 - 008.[【@vuejs/shared】 vue3 中 shared 工具函数](./102.vuejs/shared.md)
 - 101.[axios] axios 分析
 - 102.[vuejs] vue 分析

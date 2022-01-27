@@ -26,7 +26,7 @@ import { installPackage } from '@antfu/install-pkg'
 await installPackage('vite', { silent: true })
 ```
 
-原理就是通过锁文件自动检测使用何种包管理器（npm、yarn、pnpm），最终用 execa 执行类似如下的命令。
+原理就是通过锁文件自动检测使用何种包管理器（npm、yarn、pnpm），最终用 `execa` 执行类似如下的命令。
 
 ```bash
 pnpm install -D --prefer-offine release-it react antd
