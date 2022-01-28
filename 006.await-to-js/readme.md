@@ -1,13 +1,19 @@
 # `await-to-js` callback hell or try-catch hell
 
-`Promise` 解决了 callback hell, 而 ES7 的 `async/await` 却引起了 try-catch hell
-
-详细参见： https://github.com/cloudyan/learn-javascript/blob/master/es6/16.promise/try-catch-hell/readme.md
-
-其他：
-
 - https://www.npmjs.com/package/await-to-js
 - https://github.com/scopsy/await-to-js#readme
+
+之前没看过这个包，但有思考过下面的这个话题
+
+1. `Promise` 的引入是为了解决了 `callback hell`, 但流程控制上只能一路 `then`, 流程控制欠缺
+   1. 像 `axios`, `umi-request` 都通过扩展拦截器来做流程的细节把控
+   2. 对于封装为 Promise 的公共模块，缺少钩子 `predo` `postdo`
+2. ES7 的 `async/await` 造成了 `try-catch hell`
+   1. `await-to-js` 包一定程度上是在解决 `try-catch hell` 的问题
+
+详细参见：
+
+- [try-catch-hell](https://github.com/cloudyan/learn-javascript/blob/master/es6/16.promise/try-catch-hell/readme.md)
 - 官方文章：https://blog.grossman.io/how-to-write-async-await-without-try-catch-blocks-in-javascript/
 
 ## 目标

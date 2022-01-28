@@ -12,7 +12,7 @@
   - 如何开发构建一个 ts 的 npm 包
   - 配置属于自己的 eslint 预设、提升版本号等
   - 学会使用 execa 执行命令
-- 如何配置 github action
+- 如何配置 [github action](./github-action.md)
 
 这个包不大，知识点扩展开来涉及不少。
 
@@ -45,7 +45,7 @@ export * from './detect'
 export * from './install'
 ```
 
-detect.ts 探测包管理器
+**detect.ts** 探测包管理器
 
 ```js
 import path from 'path'
@@ -66,7 +66,7 @@ export async function detectPackageManager(cwd = process.cwd()) {
 }
 ```
 
-install.ts
+**install.ts**
 
 支持安装多个，也支持指定包管理器，支持额外的参数。
 
@@ -136,7 +136,7 @@ path.basename('/Users/install-pkg/pnpm-lock.yaml') // 则是 pnpm-lock.yaml
 },
 ```
 
-### ni 神器
+### `ni` 神器
 
 自动根据锁文件 yarn.lock / pnpm-lock.yaml / package-lock.json 检测使用 yarn / pnpm / npm 的包管理器。
 
@@ -210,10 +210,14 @@ pnpm add -D eslint @antfu/eslint-config
 
 - [xo](https://github.com/xojs/xo) 也不错
 
+## [github action workflows](./github-action.md)
+
 ## 知识点
 
 - `path.basename`
 - `execa` 执行脚本
+  - `stdio`
+  - `cwd`
   - https://www.npmjs.com/package/execa
   - https://github.com/sindresorhus/execa#readme
 - `find-up` 查找路径
@@ -222,66 +226,8 @@ pnpm add -D eslint @antfu/eslint-config
   - 使用的 `Yarn Workspaces`并且它管理所有项目(工作区)的依赖项，您应该将每个项目的依赖项添加到自己的 `package.json` ，而不是工作区根。
 - `nr` 交互式选择脚本
 - `esno`
+- [`package.json exports`](https://www.cnblogs.com/taohuaya/p/15573719.html)
+  - [nodejs packages_exports 文档](https://nodejs.org/api/packages.html#packages_exports)
+  - [来自这个提案](https://github.com/jkrems/proposal-pkg-exports/)
+  - 阮一峰: [Node.js 如何处理 ES6 模块](https://www.ruanyifeng.com/blog/2020/08/how-nodejs-use-es6-module.html)
 - `github action`
-- `package.json exports`
-- github action workflows
-
-对于github action 不熟悉的读者，可以看[阮一峰老师 GitHub Actions 入门教程](https://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
-
-- 配置文件 [workflows/release](https://github.com/antfu/install-pkg/blob/main/.github/workflows/release.yml)
-- 构建历史 [github action workflow](https://github.com/antfu/install-pkg/runs/3773517075?check_suite_focus=true)
-
-```yaml
-name: Release
-
-on:
-  push:
-    tags:
-      - 'v*'
-
-jobs:
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-          registry-url: https://registry.npmjs.org/
-      - run: npm i -g pnpm @antfu/ni
-      - run: nci
-      - run: nr test --if-present
-      - run: npx conventional-github-releaser -p angular
-        env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GITHUB_TOKEN}}
-```
-
-根据每次 tags 推送，执行。
-
-```bash
-# 全局安装 pnpm 和 ni
-npm i -g pnpm @antfu/ni
-```
-
-```bash
-# 如何存在 test 命令则执行
-nr test --if-present
-```
-
-nci - clean install
-
-```bash
-nci
-# npm ci
-# 简单说就是不更新锁文件
-# yarn install --frozen-lockfile
-# pnpm install --frozen-lockfile
-```
-
-最后 `npx conventional-github-releaser -p angular`
-
-- [conventional-github-releaser](https://www.npmjs.com/package/conventional-github-releaser)
-
-生成 `changelog`。

@@ -45,7 +45,7 @@ package.json
 }
 ```
 
-[preinstall](https://github.com/vuejs/core/blob/6b6889852f247a91df4793ad37e8e2e1d27c79b3/scripts/preinstall.js#L1) 源码
+- [preinstall](./preinstall.js) [源码](https://github.com/vuejs/core/blob/6b6889852f247a91df4793ad37e8e2e1d27c79b3/scripts/preinstall.js#L1)
 
 ```js
 // vue-next/scripts/preinstall.js
@@ -154,7 +154,8 @@ function pmFromUserAgent (userAgent) {
 ## 知识点
 
 - `process`
-- `npm_config_user_agent`
+  - `process.argv`
+  - `process.env.npm_config_user_agent`
 - `substr` String.prototype.substr is deprecated.
   - 推荐 `slice`
   - [pull request => chore: remove deprecated String.prototype.substr](https://github.com/vuejs/core/pull/4699)
