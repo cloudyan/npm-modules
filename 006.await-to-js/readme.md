@@ -25,53 +25,63 @@
 
 您需要使用 Node 7.6（或更高版本）或 ES7 转译器才能使用 async/await 功能。
 
-用法
+`await-to-js` 要解决的问题
 
 ```js
 import to from 'await-to-js';
 
-async function asyncFunctionWithThrow() {
-  const [err, user] = await to(UserModel.findById(1));
-  if (!user) throw new Error('User not found');
-}
-```
-
-解决的问题
-
-```js
-import to from 'await-to-js';
-
-export const getAll = async (req, res) => {
+// before
+async function asyncTask(cb) {
   try {
-    const people = await to(getData())
-    const projects = await to(getProjects())
-    const supplies = await to(getSupplies())
+    const user = await UserModel.findById(1);
+    if(!user) return cb('No user found');
+  } catch(e) {
+    return cb('Unexpected error occurred');
+  }
 
-    res.status(200).send({people, projects, supplies})
-  } catch (err) {
-    res.status(500).send(err)
+  try {
+     const savedTask = await TaskModel({userId: user.id, name: 'Demo Task'});
+  } catch(e) {
+    return cb('Error occurred while saving task');
+  }
+
+  if(user.notificationsEnabled) {
+    try {
+      await NotificationService.sendNotification(user.id, 'Task Created');
+    } catch(e) {
+      return cb('Error while sending notification');
+    }
+  }
+
+  if(savedTask.assignedUser.id !== user.id) {
+    try {
+      await NotificationService.sendNotification(savedTask.assignedUser.id, 'Task was created for you');
+    } catch(e) {
+      return cb('Error while sending notification');
+    }
+  }
+
+  cb(null, savedTask);
+}
+
+// after
+async function asyncTask() {
+  let err, user, savedTask;
+
+  [err, user] = await to(UserModel.findById(1));
+  if(!user) throw new CustomerError('No user found');
+
+  [err, savedTask] = await to(TaskModel({userId: user.id, name: 'Demo Task'}));
+  if(err) throw new CustomError('Error occurred while saving task');
+
+  if(user.notificationsEnabled) {
+    const [err] = await to(NotificationService.sendNotification(user.id, 'Task Created'));
+    if (err) console.error('Just log the error and continue flow');
   }
 }
 
 // 当在同一个方法中实现了多个异步操作并且错误处理对于两种情况相同时，
-// 新的 promise 处理程序可能不是最佳选择（回到 tr-catch 反而能避免重复）。
-let err = null
-let data = null
-export const getAll2 = async (req, res) => {
-  [err, data] = await to(getData())
-  if (err) return res.status(500).send(err)
-  const people = data
-
-  [err, data] = await to(getProjects())
-  if (err) return res.status(500).send(err)
-  const projects = data
-
-  [err, data] = await to(getSupplies())
-  if (err) return res.status(500).send(err)
-  const supplies = data
-
-  res.status(200).send({people, projects, supplies})
-}
+// 新的 promise 处理程序可能不是最佳选择（回到 try...catch 反而能避免重复）。
 ```
 
 ## 源码分析
