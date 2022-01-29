@@ -21,14 +21,16 @@
 ## 列表
 
 - 001.[【validate-npm-package-name】检测 npm 包是否符合标准](./001.validate-npm-package-name/readme.md)
-- 002.[【axios/lib/utils】axios 中 utils 工具函数](./101.axios/utils.md)
+- 002.[axios 中的 `utils` 工具函数](./101.axios/utils.md)
 - 003.[【remote-git-tags】callback promisify 化的 Node.js 源码实现](./003.remote-git-tags/readme.md)
 - 004.[【only-allow】一行代码统一规范团队包管理器的神器](./004.only-allow/readme.md)
 - 005.[【install-pkg】 以编程方式安装包。自动检测包管理器（npm、yarn 和 pnpm）](./005.pkg-install/readme.md)
 - 006.[【await-to-js】流程控制](./006.await-to-js/readme.md)
 - 007.[【configstore】 轻松加载和持久化配置，无需考虑位置和方式](./007.configstore/readme.md)
   - [【dot-prop】](./007.configstore/dot-prop.md)
-- 008.[【@vuejs/shared】 vue3 中 shared 工具函数](./102.vuejs/shared.md)
+- 008. vue 中的 `shared` 工具函数
+  - [vue2 中的 `shared` 工具函数](./102.vuejs/vue2-shared.md)
+  - [vue3 中的 `@vuejs/shared` 工具函数](./102.vuejs/vue3-shared.md)
 - 101.[axios] axios 分析
 - 102.[vuejs] vue 分析
 
