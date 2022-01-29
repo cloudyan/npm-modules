@@ -28,7 +28,7 @@
 - 006.[【await-to-js】流程控制](./006.await-to-js/readme.md)
 - 007.[【configstore】 轻松加载和持久化配置，无需考虑位置和方式](./007.configstore/readme.md)
   - [【dot-prop】](./007.configstore/dot-prop.md)
-- 008.vue 中的 `shared` 工具函数
+- 008.【vue】 中的 `shared` 工具函数
   - [vue2 中的 `shared` 工具函数](./102.vue/vue2-shared.md)
   - [vue3 中的 `@vue/shared` 工具函数](./102.vue/vue3-shared.md)
 - 101.[axios] axios 分析
