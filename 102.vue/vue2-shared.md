@@ -2,6 +2,10 @@
 
 - `shared` 工具函数 [源码](https://github.com/vuejs/vue/blob/dev/src/shared/util.js)
 
+参考好文：
+
+- 若川：[初学者也能看懂的 Vue2 源码中那些实用的基础工具函数](https://juejin.cn/post/7024276020731592741)
+
 这个目标比较明确，直接上源码，要求同样是**看明白，写清楚，做总结**
 
 - Vue2 工具函数命名很规范，比如：`is` 判断，`to` 转换，`has` 是否有，让开发者一眼就能看出函数语意。
@@ -497,7 +501,7 @@ var LIFECYCLE_HOOKS = [
 - `isFinite` 是否为一个有限数值（finite number）
   - [MDN isFinite](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite)
 - `isNaN` vs `Number.isNaN`
-  - `isNaN` 只要不是number就会返回 true，相当于 `Number.isNaN(Number(value))`
+  - `isNaN` 只要不是number就会返回 true，(MDN的解释, `isNaN` 相当于 `Number.isNaN(Number(value))`)
   - `Number.isNaN()` ES6 引入，弥补上述的 bug
   - [从 Number.isNaN 与 isNaN 的区别说起](https://juejin.cn/post/6844903507368083469)
 - `Object.create(null)`
@@ -511,12 +515,7 @@ var LIFECYCLE_HOOKS = [
   - [JS正则表达式完整教程（略长）](https://juejin.cn/post/6844903487155732494)
 - [模拟实现 JS 的 `call`, `apply`, `bind`](https://juejin.cn/post/6844903728147857415)
 
-
-参考：
-
-- 若川：[初学者也能看懂的 Vue2 源码中那些实用的基础工具函数](https://juejin.cn/post/7024276020731592741)
-
-其他
+扩展
 
 ![Object.prototype.toString](../assets/object.prototype.tostring.png)
 

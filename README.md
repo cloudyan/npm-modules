@@ -1,9 +1,9 @@
 # npm-modules
 
-这个项目有停了很长一段时间, 现在重新开始。并将这个库重新定位为源码系列。
+这个项目有停了很长一段时间, 现在重新开始。并将这个库重新定位为**源码系列**。
 
 1. 学使用
-2. 学源码
+2. 学设计
 
 学习参考:
 
@@ -28,11 +28,11 @@
 - 006.[【await-to-js】流程控制](./006.await-to-js/readme.md)
 - 007.[【configstore】 轻松加载和持久化配置，无需考虑位置和方式](./007.configstore/readme.md)
   - [【dot-prop】](./007.configstore/dot-prop.md)
-- 008. vue 中的 `shared` 工具函数
-  - [vue2 中的 `shared` 工具函数](./102.vuejs/vue2-shared.md)
-  - [vue3 中的 `@vuejs/shared` 工具函数](./102.vuejs/vue3-shared.md)
+- 008.vue 中的 `shared` 工具函数
+  - [vue2 中的 `shared` 工具函数](./102.vue/vue2-shared.md)
+  - [vue3 中的 `@vue/shared` 工具函数](./102.vue/vue3-shared.md)
 - 101.[axios] axios 分析
-- 102.[vuejs] vue 分析
+- 102.[vue] vue 分析
 
 
 学习 nodejs，从下面的方向开始

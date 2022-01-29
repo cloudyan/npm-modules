@@ -2,7 +2,7 @@
 
 - `utils` 工具函数 [源码](https://github.com/axios/axios/blob/master/lib/utils.js)
 
-参考:
+参考好文：
 
 - [阅读axios源码，发现了这些实用的基础工具函数](https://juejin.cn/post/7042610679815241758)
 

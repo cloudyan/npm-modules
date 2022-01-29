@@ -3,6 +3,10 @@
 - https://www.npmjs.com/package/validate-npm-package-name
 - https://github.com/npm/validate-npm-package-name
 
+参考好文：
+
+- [每天一个npm包：validate-npm-package-name](https://zhuanlan.zhihu.com/p/362147023)
+
 ## 目标
 
 - 了解作用和使用场景

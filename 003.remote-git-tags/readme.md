@@ -2,9 +2,10 @@
 
 - https://www.npmjs.com/package/remote-git-tags
 - https://github.com/sindresorhus/remote-git-tags#readme
-- https://juejin.cn/post/7028731182216904740
 
+参考好文：
 
+- 若川 [从22行有趣的源码库中，我学到了 callback promisify 化的 Node.js 源码实现](https://juejin.cn/post/7028731182216904740)
 
 ## 目标
 
