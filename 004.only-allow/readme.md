@@ -129,7 +129,9 @@ npm/6.1.0 node/v8.9.4 darwin x64
 yarn/1.7.0 npm/? node/v8.9.4 darwin x64
 ```
 
-`which-pm-runs` 源码如下
+### `which-pm-runs`
+
+源码如下
 
 ```js
 'use strict'

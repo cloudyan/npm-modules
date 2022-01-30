@@ -32,6 +32,7 @@
   - [vue2 中的 `shared` 工具函数](./102.vue/vue2-shared.md)
   - [vue3 中的 `@vue/shared` 工具函数](./102.vue/vue3-shared.md)
 - 009.[【js-cookie】Cookie 的封装，简单、轻量、好用](./009.js-cookie/readme.md)
+- 010.[【emitter】发布订阅](./010.emitter/readme.md)
 - 101.[axios] axios 分析
 - 102.[vue] vue 分析
 
