@@ -112,6 +112,8 @@ module.exports.TinyEmitter = E;
 
 - `addEventListener`
 - `Map`
+- `call`
+- `apply`
 
 ## 扩展
 
