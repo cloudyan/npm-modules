@@ -116,4 +116,6 @@ module.exports.TinyEmitter = E;
 ## 扩展
 
 - [观察者模式 vs 发布订阅模式](https://zhuanlan.zhihu.com/p/51357583)
+- [观察者模式 vs 发布-订阅模式](https://juejin.cn/post/6844903513009422343)
+  - 英文原文：[Observer vs Pub-Sub pattern](https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c)
 - [理解【观察者模式】和【发布订阅】的区别](https://juejin.cn/post/6978728619782701087)
