@@ -234,9 +234,27 @@ export default api;
 - `replace`
 - `noConflict`
 - [`RFC 6265`](http://tools.ietf.org/html/rfc6265#section-4.1.1)
+- `escape()` 返回一个字符的Unicode编码值。它不对加号`+`编码
+- `encodeURI()` 输出符号的utf-8形式，并且在每个字节前加上%。它不对 `; / ? : @ & = + $ , #` 编码，也不对单引号`'`编码
+- `encodeURIComponent()` 对 `; / ? : @ & = + $ , #` 编码
 
 ## 扩展
 
+- 阮一峰 [关于URL编码](https://www.ruanyifeng.com/blog/2010/02/url_encoding.html)
+  - URL 只能使用 ASCII 字符集来通过因特网进行发送。
+  - 非 ASCII 转为 ASCII 格式，`%`+两位的十六进制数
+  - URL 不能包含空格。URL 编码通常使用 + 来替换空格。
+    - 网址路径的编码，用的是utf-8编码
+    - 查询字符串的编码，用的是操作系统的默认编码
+- 阮一峰 [字符编码笔记：ASCII，Unicode 和 UTF-8](https://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
 - [Web客户端追踪（上）—Cookie追踪](https://paper.seebug.org/227/)
 - [你是如何被广告跟踪的？](https://zhuanlan.zhihu.com/p/34591096)
 - [从前端视角看浏览器隐身模式下你是如何被追踪的](https://segmentfault.com/a/1190000040475726)
+
+扩展知识
+
+- `escape()` 返回一个字符的Unicode编码值。
+
+除了ASCII字母、数字、标点符号"@ * _ + - . /"以外，对其他所有字符进行编码。在\u0000到\u00ff之间的符号被转成%xx的形式，其余符号被转成%uxxxx的形式。对应的解码函数是unescape()。
+
+escape()不对"+"编码。
