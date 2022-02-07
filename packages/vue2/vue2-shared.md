@@ -517,7 +517,7 @@ var LIFECYCLE_HOOKS = [
 
 扩展
 
-![Object.prototype.toString](../assets/object.prototype.tostring.png)
+![Object.prototype.toString](../../assets/object.prototype.tostring.png)
 
 `splice` 其实是一个很耗性能的方法。删除数组中的一项，其他元素都要移动位置。
 

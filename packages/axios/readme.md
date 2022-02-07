@@ -6,6 +6,10 @@ Axios 是一个基于 promise 网络请求库，作用于node.js 和浏览器中
 - https://github.com/axios/axios
 - 官方文档: https://axios-http.com/docs/intro
 
+参考好文
+
+- 若川 [学习 axios 源码整体架构，打造属于自己的请求库](https://juejin.cn/post/6844904019987529735)
+
 之前就看过一次源码, 当时没什么感觉, 前些日子需要做请求拦截重试功能, 再次看了一遍 axios 以及 umi-request 的设计, 才感觉 axios 的这个设计很美.
 
 ## 目标

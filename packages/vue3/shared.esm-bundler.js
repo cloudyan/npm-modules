@@ -1,4 +1,5 @@
-// 此版本对应 commit: 81a67087 编译所得
+// 此版本对应 vue3 commit: 81a67087 编译所得
+//
 
 /**
  * Make a map and return a function for checking if a key

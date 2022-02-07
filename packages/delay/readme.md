@@ -39,6 +39,36 @@ const sleep = (ms, ...rest) => new Promise((resolve) => setTimeout(resolve, ms, 
 // testing
 await sleep(3000);
 console.log(111);
+
+// 扩展
+// 2. 传入 value 作为返回值
+// 3. 通过参数控制返回 resolve or reject
+// 4. 一定时间范围内随机获得结果
+// 5. 支持提前清除
+const randomInteger = (minimum, maximum) => Math.floor((Math.random() * (maximum - minimum + 1)) + minimum);
+
+const createDelay = ({willResolve}) => (ms, {value} = {}) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if(willResolve){
+        resolve(value);
+      }
+      else{
+        reject(value);
+      }
+    }, ms);
+  });
+}
+
+const createWithTimers = () => {
+  const delay = createDelay({willResolve: true});
+  delay.reject = createDelay({willResolve: false});
+  delay.range = (minimum, maximum, options) => delay(randomInteger(minimum, maximum), options);
+  return delay;
+}
+
+// testing
+const delay4 = createWithTimers();
 ```
 
 ## 源码分析
@@ -122,3 +152,8 @@ module.exports.default = delay;
 
 - `Promise`
 - `abort`
+- `addEventListener`
+- `range`
+- `randomInteger`
+- `axios` 取消请求
+- `AbortController`

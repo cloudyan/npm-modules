@@ -1,6 +1,6 @@
 # npm-modules
 
-这个项目有停了很长一段时间, 现在重新开始。并将这个库重新定位为**源码系列**。
+这个项目有停了很长一段时间, 现在重新开始。并将这个库重新定位为**源码系列**(xxx-analysis)。
 
 1. 学使用
 2. 学设计
@@ -18,24 +18,30 @@
 总结记录
 ```
 
+> 工欲善其事必先利其器
+
+如何学习调试源码
+
+- [debugging 调试](https://github.com/cloudyan/debugging)
+  - [调试JS代码](https://juejin.cn/post/7030584939020042254)
+
 ## 列表
 
-- 001.[【validate-npm-package-name】检测 npm 包是否符合标准](./001.validate-npm-package-name/readme.md)
-- 002.[【axios】中的 `utils` 工具函数](./101.axios/utils.md)
-- 003.[【remote-git-tags】callback promisify 化的 Node.js 源码实现](./003.remote-git-tags/readme.md)
-- 004.[【only-allow】一行代码统一规范团队包管理器的神器](./004.only-allow/readme.md)
-- 005.[【install-pkg】 以编程方式安装包。自动检测包管理器（npm、yarn 和 pnpm）](./005.pkg-install/readme.md)
-- 006.[【await-to-js】流程控制](./006.await-to-js/readme.md)
-- 007.[【configstore】 轻松加载和持久化配置，无需考虑位置和方式](./007.configstore/readme.md)
-  - [【dot-prop】](./007.configstore/dot-prop.md)
-- 008.【vue】 中的 `shared` 工具函数
-  - [vue2 中的 `shared` 工具函数](./102.vue/vue2-shared.md)
-  - [vue3 中的 `@vue/shared` 工具函数](./102.vue/vue3-shared.md)
-- 009.[【js-cookie】Cookie 的封装，简单、轻量、好用](./009.js-cookie/readme.md)
-- 010.[【emitter】发布订阅](./010.emitter/readme.md)
-- 011.[【delay】带取消功能的延迟函数](./011.delay/readme.md)
-- 101.[axios] axios 分析
-- 102.[vue] vue 分析
+- 001.[【validate-npm-package-name】检测 npm 包是否符合标准](./packages/validate-npm-package-name/readme.md)
+- 002.[【axios】中的 `utils` 工具函数](./packages/axios/utils.md)
+- 003.[【remote-git-tags】callback promisify 化的 Node.js 源码实现](./packages/remote-git-tags/readme.md)
+- 004.[【only-allow】一行代码统一规范团队包管理器的神器](./packages/only-allow/readme.md)
+- 005.[【install-pkg】以编程方式安装包。自动检测包管理器（npm、yarn 和 pnpm）](./packages/pkg-install/readme.md)
+- 006.[【await-to-js】流程控制](./packages/await-to-js/readme.md)
+- 007.[【configstore】轻松加载和持久化配置，无需考虑位置和方式](./packages/configstore/readme.md)
+  - [【dot-prop】](./packages/configstore/dot-prop.md)
+- 008.[【vue2】中的 `shared` 工具函数](./packages/vue2/vue2-shared.md)
+- 008.[【vue3】中的 `shared` 工具函数](./packages/vue3/vue3-shared.md)
+- 009.[【js-cookie】Cookie 的封装，简单、轻量、好用](./packages/js-cookie/readme.md)
+- 010.[【emitter】发布订阅](./packages/emitter/readme.md)
+- 011.[【delay】带取消功能的延迟函数](./packages/delay/readme.md)
+- 101.[【axios】源码分析](./packages/axios/readme.md)
+- 102.[【vue】源码分析](./packages/vue/readme.md)
 
 
 学习 nodejs，从下面的方向开始
