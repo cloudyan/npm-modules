@@ -22,8 +22,10 @@
 
 如何学习调试源码
 
+- [程序员阅读源码是一种什么心态？源码对编程意义何在？如何才能更好阅读代码？](https://www.zhihu.com/question/29765945)
 - [debugging 调试](https://github.com/cloudyan/debugging)
   - [调试JS代码](https://juejin.cn/post/7030584939020042254)
+- [为什么源码分析味同嚼蜡？浅析技术写作中的思维误区](https://juejin.cn/post/6844903512669700109)
 
 ## 列表
 
@@ -36,12 +38,11 @@
 - 007.[【configstore】轻松加载和持久化配置，无需考虑位置和方式](./packages/configstore/readme.md)
   - [【dot-prop】](./packages/configstore/dot-prop.md)
 - 008.[【vue2】中的 `shared` 工具函数](./packages/vue2/vue2-shared.md)
-- 008.[【vue3】中的 `shared` 工具函数](./packages/vue3/vue3-shared.md)
-- 009.[【js-cookie】Cookie 的封装，简单、轻量、好用](./packages/js-cookie/readme.md)
+- 009.[【vue3】中的 `shared` 工具函数](./packages/vue3/vue3-shared.md)
 - 010.[【emitter】发布订阅](./packages/emitter/readme.md)
-- 011.[【delay】带取消功能的延迟函数](./packages/delay/readme.md)
-- 101.[【axios】源码分析](./packages/axios/readme.md)
-- 102.[【vue】源码分析](./packages/vue/readme.md)
+- 011.[【js-cookie】Cookie 的封装，简单、轻量、好用](./packages/js-cookie/readme.md)
+- 012.[【delay】带取消功能的延迟函数](./packages/delay/readme.md)
+- 013.[【cross-env】跨平台设置及使用环境变量](./packages/cross-env/readme.md)
 
 
 学习 nodejs，从下面的方向开始

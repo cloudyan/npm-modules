@@ -1,5 +1,5 @@
 
-function promisify (original) {
+function promisify(original) {
   function fn(...rest) {
     return new Promise((resolve, reject) => {
       rest.push((err, ...values) => {

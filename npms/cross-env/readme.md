@@ -1,5 +1,7 @@
 # cross-env
 
+请参看 [【cross-env】跨平台设置及使用环境变量](../../packages/cross-env/readme.md)
+
 [cross-env](https://www.npmjs.com/package/cross-env)
 
 ## 是什么
