@@ -43,6 +43,7 @@
 - 011.[【js-cookie】Cookie 的封装，简单、轻量、好用](./packages/js-cookie/readme.md)
 - 012.[【delay】带取消功能的延迟函数](./packages/delay/readme.md)
 - 013.[【cross-env】跨平台设置及使用环境变量](./packages/cross-env/readme.md)
+- 014.[【ni】use the right package manager](./packages/ni/readme.md)
 
 
 学习 nodejs，从下面的方向开始

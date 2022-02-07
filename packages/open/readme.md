@@ -1,4 +1,4 @@
-<!-- 源码分析 Source code analysis，由 `npx create tpl sca` 生成 -->
+<!-- 源码分析 Source code analysis，由 `pnpm create tpl sca` 生成 -->
 # `open`
 
 - https://www.npmjs.com/package/open
