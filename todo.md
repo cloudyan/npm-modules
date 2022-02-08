@@ -88,34 +88,4 @@
 
 ## DIY
 
-手写实现 xxx
-
-- inherit 实现继承（es5 es6）
-- 数组去重
-- 数组扁平化
-- 深浅拷贝（广度优先，深度优先）
-- 解析 URL 参数为对象
-- 字符串模板
-- 图片懒加载
-- 事件总线（发布订阅模式）
-- 节流、防抖区别与实现
-- 函数柯里化
-- 手写 JSONP 实现
-- 手写 ajax
-- 实现数组原型方法
-  - forEach
-  - map
-  - filter
-  - some
-  - reduce
-- 实现函数原型方法 call,apply,bind 方法
-- 实现 new 关键字
-- 实现 instanceof 关键字
-- 实现 Object.create
-- 实现 Object.assign
-- 实现 JSON.stringify
-- 实现 JSON.parse
-- 实现 Promise
-
-- https://mp.weixin.qq.com/s/7KwM6fNM5MICHiIwoRDm-w
-- https://mp.weixin.qq.com/s/oOmX4lcCy_vZfXx0KjLKOg
+各种 DIY 参看 [diy-x](https://github.com/cloudyan/diy-x)
