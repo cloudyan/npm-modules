@@ -4,19 +4,19 @@
 
 打包工具，辅助工具，插件，框架，库
 
-1. [ ] validate-npm-package-name
-2. [ ] axios/libs
-3. [ ] remote-git-tags
-4. [ ] only-allow
-5. [ ] install-pkg
-6. [ ] await-to-js
-7. [ ] configstore & dot-prop
-8. [ ] vue2/shared
-9. [ ] vue3/shared
-10. [ ] emitter
-11. [ ] js-cookie
-12. [ ] delay
-13. [ ] cross-env
+1. [x] validate-npm-package-name
+2. [x] axios/libs
+3. [x] remote-git-tags
+4. [x] only-allow
+5. [x] install-pkg
+6. [x] await-to-js
+7. [x] configstore & dot-prop
+8. [x] vue2/shared
+9. [x] vue3/shared
+10. [x] emitter
+11. [x] js-cookie
+12. [x] delay
+13. [x] cross-env
 14. [ ] ni
 15. [ ] dotenv
 16. [ ] lru && lru-cache && quick-lru cacheables
