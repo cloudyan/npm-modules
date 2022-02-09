@@ -10,7 +10,7 @@
 4. [x] only-allow
 5. [x] install-pkg
 6. [x] await-to-js
-7. [x] configstore & dot-prop
+7. [x] configstore && dot-prop
 8. [x] vue2/shared
 9. [x] vue3/shared
 10. [x] emitter
@@ -36,7 +36,7 @@
   - https://github.com/sorrycc/toy-vite
 - v-click-outside
 - vue-release
-- Snabbdom (Virtual DOM)
+- Snabbdom (Virtual DOM) https://juejin.cn/post/6941009454376681479
 
 ## react 生态
 
