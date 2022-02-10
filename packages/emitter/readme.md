@@ -16,9 +16,11 @@
 
 ## 源码分析
 
-- [ ] DIY [tiny-emitter](https://github.com/scottcorgan/tiny-emitter/blob/master/index.js)
+- [x] DIY [my-emitter](./my-emitter.js)
 
 ```js
+// 源码 https://github.com/scottcorgan/tiny-emitter/blob/master/index.js
+
 function E () {
   // Keep this empty so it's easier to inherit from
   // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
