@@ -114,20 +114,7 @@ For more details, go to https://yarnpkg.com/`, boxenOpts))
 }
 ```
 
-可以继续查看 [which-pm-runs 源码](https://github.com/zkochan/packages/blob/master/which-pm-runs/index.js#L1-L18)
-
-返回包管理器和版本号。
-
-关于 [npm_config_user_agent](https://npm.io/package/npm-config-user-agent-parser)
-
-`npm_config_user_agent` 是格式类似如下的字符串
-
-```js
-npm/6.1.0 node/v8.9.4 darwin x64
-
-// 或
-yarn/1.7.0 npm/? node/v8.9.4 darwin x64
-```
+可以继续查看 [which-pm-runs](https://github.com/zkochan/packages/blob/master/which-pm-runs/index.js#L1-L18) 源码如下，返回包管理器和版本号。
 
 ### `which-pm-runs`
 
@@ -151,6 +138,17 @@ function pmFromUserAgent (userAgent) {
     version: pmSpec.substr(separatorPos + 1)
   }
 }
+```
+
+关于 [process.env.npm_config_user_agent](https://npm.io/package/npm-config-user-agent-parser)
+
+`process.env.npm_config_user_agent` 是格式类似如下的字符串, 从中提取第一项，得出当前使用的包管理器
+
+```js
+npm/6.1.0 node/v8.9.4 darwin x64
+
+// 或
+yarn/1.7.0 npm/? node/v8.9.4 darwin x64
 ```
 
 ## 知识点
