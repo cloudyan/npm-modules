@@ -34,12 +34,25 @@ const delay = require('delay');
 以前有用到一个 `sleep`, 跟这个有点类似
 
 ```js
-const sleep = (ms, ...rest) => new Promise((resolve) => setTimeout(resolve, ms, ...rest));
+const sleep = (ms, data) => new Promise((resolve) => setTimeout(resolve, ms, data));
+
+// 等效如下
+function sleep2(ms, data) {
+  return new Promise((resolve, reject) => {
+    setTimeout((d) => {
+      resolve(d)
+    }, ms, data)
+  })
+}
 
 // testing
-await sleep(3000);
+sleep(3000, {code: 0}).then(res => {
+  console.log(res)
+});
 console.log(111);
+```
 
+```js
 // 扩展
 // 2. 传入 value 作为返回值
 // 3. 通过参数控制返回 resolve or reject

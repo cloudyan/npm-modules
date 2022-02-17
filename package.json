@@ -2,7 +2,6 @@
   "name": "npm-modules",
   "version": "1.0.0",
   "description": "源码分析解读系列",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
