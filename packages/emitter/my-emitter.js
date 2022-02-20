@@ -40,6 +40,7 @@ class EventEmitter {
   }
   once(name, fn) {
     const self = this;
+
     function listener () {
       self.off(name, fn)
       fn(...arguments)

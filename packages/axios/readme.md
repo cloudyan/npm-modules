@@ -84,6 +84,7 @@ axios 使用 cancel token 取消一个请求。
 - validateStatus
 - 304 响应 [sindresorhus/got](https://github.com/sindresorhus/got/blob/main/documentation/cache.md)
 - [应用传输安全 (ATS)](https://developers.google.com/admob/ios/app-transport-security)
+- 实现一个函数sum函数满足以下规律 `sum(2, 3)(2).valueOf() = 7`
 
 ## 扩展
 
@@ -129,4 +130,4 @@ setTimeout(function () {
 参考：
 
 - [代码沙盒，能运行多种语言，且可以添加依赖](https://codesandbox.io/)
--
+

@@ -94,6 +94,8 @@ module.exports.TinyEmitter = E;
 
 - [ ] [mitt](https://github.com/developit/mitt/blob/main/src/index.ts)
 
+
+
 ### 对比分析
 
 `mitt` 和 `tiny-emitter` 的对比分析
