@@ -44,7 +44,10 @@
 - 012.[【delay】带取消功能的延迟函数](./packages/delay/readme.md)
 - 013.[【cross-env】跨平台设置及使用环境变量](./packages/cross-env/readme.md)
 - 014.[【ni】use the right package manager](./packages/ni/readme.md)
-
+- 015.【axios-xxx】
+  - [axios-jsonp](./packages/axios-jsonp/readme.md)
+  - [axios-retry](./packages/axios-retry/readme.md)
+  - [axios-extensions](./packages/axios-extensions/readme.md)
 
 学习 nodejs，从下面的方向开始
 

@@ -10,7 +10,7 @@
 - [【源码阅读系列】js-cookie库](https://github.com/yeyp/blog/issues/7)
 - [造一个 js-cookie 轮子](https://github.com/haixiangyan/my-js-cookie)
 
-这个 `js-cookie` 使用很简单，看源码发现需要考虑的事儿不少，我之前有简单处理过 `url query` 参数解析的逻辑，着重考虑一些点（url 的 `hash`, `?` 以及编解码不规范等），这里看到这个库，感觉又需要可以去完善一波了。
+这个 `js-cookie` 使用很简单，看源码发现需要考虑的事儿不少，我之前有简单处理过 `url query` 参数解析的逻辑，着重考虑一些点（url 的 `hash`, `?` 以及编解码不规范等），这里看到这个库，感觉又可以去完善一波了。
 
 ## 目标
 

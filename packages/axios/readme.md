@@ -27,15 +27,7 @@ axios 是最著名的 Javascript 请求库之一。
 
 ![axios-configs](../../assets/axios-configs.png)
 
-请求体结构设计
-
-```js
-// { method, url, headers, data }
-axios({
-  baseURL: 'http://a.com/b?c=d',
-  url: '&e=f'
-})
-```
+关于请求配置参数，参见 [axios 文档](https://axios-http.com/zh/docs/req_config)
 
 
 ## 目标
@@ -223,17 +215,46 @@ setTimeout(function () {
 
 axios 使用 cancel token 取消一个请求。（已弃用，推荐使用 `AbortController`）
 
+注意: axios 可以使用同一个 cancel token 取消多个请求。
+
 > Axios 的 cancel token API 是基于**可取消 Promise 提案（[cancelable promises proposal](https://github.com/tc39/proposal-cancelable-promises)）**来实现的（该提案已被撤销） 。
-> 此 API 从 `v0.22.0` 开始已被弃用，不应在新项目中使用。
+> 此 cancel token API 从 `v0.22.0` 开始已被弃用，不应在新项目中使用。
 > 从 `v0.22.0` 开始，Axios 支持以 fetch API 方式 —— `AbortController` 取消请求
 
 具体使用参看文档[取消请求](https://axios-http.com/zh/docs/cancellation)
 
-注意: axios 可以使用同一个 cancel token 取消多个请求。
+```js
+const controller = new AbortController();
+
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
+
+axios.get('/user/12345', {
+  cancelToken: source.token,
+  signal: controller.signal
+}).catch(function (thrown) {
+  if (axios.isCancel(thrown)) {
+    console.log('Request canceled', thrown.message);
+  } else {
+    // 处理错误
+  }
+});
+
+axios.post('/user/12345', {
+  name: 'new name'
+}, {
+  cancelToken: source.token
+})
+
+// 取消请求 (message 参数是可选的)
+source.cancel('Operation canceled by the user.');
+// 或
+controller.abort(); // 不支持 message 参数
+```
 
 关于 [cancelable promises](https://github.com/whatwg/fetch/issues/447) 提案已撤销
 
-核心逻辑在这里 https://github.com/axios/axios/blob/master/lib/core/dispatchRequest.js#L12
+axios 的核心逻辑实现在这里 https://github.com/axios/axios/blob/master/lib/core/dispatchRequest.js#L12
 
 ### 数据安全 CSRF 防御
 
