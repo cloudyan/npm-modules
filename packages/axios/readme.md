@@ -27,6 +27,17 @@ axios 是最著名的 Javascript 请求库之一。
 
 ![axios-configs](../../assets/axios-configs.png)
 
+请求体结构设计
+
+```js
+// { method, url, headers, data }
+axios({
+  baseURL: 'http://a.com/b?c=d',
+  url: '&e=f'
+})
+```
+
+
 ## 目标
 
 - [utils](./utils.md)
@@ -249,6 +260,7 @@ Axios 内部是使用 **双重 Cookie 防御** 的方案来防御 CSRF 攻击，
   - axios-methoe-override
   - axios-cache-plugin
   - [axios-fetch](https://www.npmjs.com/package/axios-fetch)
+    - [@apollo/client](https://www.npmjs.com/package/@apollo/client)
   - [axios-jsonp](https://www.npmjs.com/package/axios-jsonp)
     - `jsonpAdapter`
   - [axios-retry](https://www.npmjs.com/package/axios-retry)
@@ -270,7 +282,9 @@ Axios 内部是使用 **双重 Cookie 防御** 的方案来防御 CSRF 攻击，
   - redux-axios-middleware
 
 - 其他
-  - [ky](https://www.npmjs.com/package/ky) 基于 Fetch API
+  - [ky](https://www.npmjs.com/package/ky) 基于 Fetch API, 支持现代浏览器和Deno
+    - Node.js，请查看 [Got](https://github.com/sindresorhus/got)
+    - 同构需求，请查看 [ky-universal](https://www.npmjs.com/package/got)
   - [node-libcurl](https://www.npmjs.com/package/node-libcurl)
   - [superagent](https://www.npmjs.com/package/superagent)
 
@@ -279,7 +293,7 @@ Axios 内部是使用 **双重 Cookie 防御** 的方案来防御 CSRF 攻击，
 ## 知识点
 
 - Should `method` be lower cases or upper?
-  - 都应大写，参看[HTTP specifications](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+  - **都应大写**，参看[HTTP specifications](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 - headers: CORS, cookies
   - [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) 仅发生在浏览器端
   - [preflighted requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Preflighted_requests)
