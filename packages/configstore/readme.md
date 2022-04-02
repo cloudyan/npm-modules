@@ -14,7 +14,12 @@
 
 之前有写过一个 [`@deepjs/storage`](https://www.npmjs.com/package/@deepjs/storage) 用于封装 `localStorage`, `sessionStorage`, 大体结构和这个有点类似。
 
-这里来学习下流行库是怎么设计的，先看下 [npm](https://www.npmjs.com/package/configstore)  上的大体情况
+两者定位不同
+
+- `configstore` 用于 nodejs 工具的配置持久化存储
+- `@deepjs/storage` 用于便捷处理客户端(浏览器)的本地存储
+
+下面我们学习下流行库是怎么设计的，先看下 [npm](https://www.npmjs.com/package/configstore) 上的大体情况
 
 - Readme
 - Dependents 非常多的流行库都有引用它
