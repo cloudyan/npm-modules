@@ -14,7 +14,7 @@ axios 是最著名的 Javascript 请求库之一。
 
 参考好文
 
-- 官方文档: https://axios-http.com/docs/intro
+- 官方文档: https://axios-http.com/zh/docs/intro
 - 推荐 [You-Dont-Know-Axios](https://github.com/chinesedfan/You-Dont-Know-Axios)
 - 若川 [学习 axios 源码整体架构，打造属于自己的请求库](https://juejin.cn/post/6844904019987529735)
 - [77.9K Star 的 Axios 项目有哪些值得借鉴的地方](https://juejin.cn/post/6885471967714115597)\
@@ -29,6 +29,32 @@ axios 是最著名的 Javascript 请求库之一。
 
 关于请求配置参数，参见 [axios 文档](https://axios-http.com/zh/docs/req_config)
 
+```js
+// axios requestOptions
+{
+  url: '/user',
+  method: 'get',
+  baseURL: 'https://some-domain.com/api/',
+  headers: {'X-Requested-With': 'XMLHttpRequest'}, // 应为 headers
+  params: {
+    ID: 12345
+  },
+  paramsSerializer: function (params) {
+    return Qs.stringify(params, {arrayFormat: 'brackets'})
+  },
+  data: {
+    firstName: 'Fred'
+  },
+  timeout: 1000, // 单位毫秒, 默认值是 `0` (永不超时)
+  withCredentials: false, // 跨域使用凭证, 默认 false
+  responseType: 'json', // 默认值
+  xsrfCookieName: 'XSRF-TOKEN', // 默认值, xsrf token 的值，被用作 cookie 的名称
+  xsrfHeaderName: 'X-XSRF-TOKEN', // 默认值, 带有 xsrf token 值的http 请求头名称
+  validateStatus: function (status) {
+    return status >= 200 && status < 300; // 默认值
+  },
+}
+```
 
 ## 目标
 
@@ -37,6 +63,40 @@ axios 是最著名的 Javascript 请求库之一。
 - 源码分析
 - Axios 生态
 - 功能扩展
+
+## 使用
+
+```js
+const axios = require('axios');
+
+// 向给定ID的用户发起请求
+axios.get('/user',{
+    params: {
+      ID: 12345,
+    }
+  })
+  .then(function (response) {
+    // 处理成功情况
+    console.log(response);
+  })
+  .catch(function (error) {
+    // 处理错误情况
+    console.log(error);
+  })
+  .then(function () {
+    // 总是会执行
+  });
+
+// 支持async/await用法
+async function getUser() {
+  try {
+    const response = await axios.get('/user?ID=12345');
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
 
 ## 源码分析
 
@@ -109,6 +169,8 @@ module.exports = function myAdapter(config) {
 通过此设计，还可以实现
 
 - 小程序的请求适配器
+- taro-adapter
+- uniapp-adapter
 - fetchAPI 的请求适配器
 
 ### 拦截器设计
@@ -120,6 +182,8 @@ axios.interceptors.request.use(requestResolve1, requestReject1);
 axios.interceptors.request.use(requestResolve2, requestReject2);
 axios.interceptors.response.use(responseResolve1, responseReject1);
 axios.interceptors.response.use(responseResolve2, responseReject2);
+
+// 拦截器不要返回数据，依然返回 AxiosResponse 对象
 
 axios(config).then(thenBlock).catch(catchBlock);
 
@@ -339,9 +403,16 @@ Axios 内部是使用 **双重 Cookie 防御** 的方案来防御 CSRF 攻击，
 - 304 响应 [sindresorhus/got](https://github.com/sindresorhus/got/blob/main/documentation/cache.md)
 - [应用传输安全 (ATS)](https://developers.google.com/admob/ios/app-transport-security)
 
-## 扩展
+## 扩展工具箱
 
+扩展 axios 能力
 
+- axios-tools
+  - axios-taro-adapter
+  - axios-uniapp-adapter
+  - axios-retry-enhancer
+  - axios-throttle-enhancer
+  - axios-cache-enhancer
 
 ### Promise 链式写法
 
@@ -353,4 +424,5 @@ Axios 内部是使用 **双重 Cookie 防御** 的方案来防御 CSRF 攻击，
 - [代码沙盒，能运行多种语言，且可以添加依赖](https://codesandbox.io/)
 - [Axios部分源码解析--拦截器](https://github.com/AttemptWeb/Record/issues/26)
 - [不要再被误导了，封装 Axios 只看这一篇文章就行了](https://juejin.cn/post/7053471988752318472)
+  - 拦截器不要返回数据，依然返回 AxiosResponse 对象
 - [前端安全系列（二）：如何防止CSRF攻击？](https://tech.meituan.com/2018/10/11/fe-security-csrf.html)
