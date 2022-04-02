@@ -11,7 +11,7 @@
 
 This library exposes a Fetch WebAPI implementation backed by a Axios client instance. This allows a bridge between projects that have pre-configured Axios clients already to other libraries that require Fetch implementations.
 
-让 axios 实现了类似 fetch WebAPI 的使用效果。但并不是将 axios 的 adapter 改为使用 fetch 来实现。
+注意: `axios-fetch` 让 axios 实现了类似 fetch WebAPI 的使用效果。但并不是将 axios 的 adapter 改为使用 fetch 来实现。
 
 用于需要使用 fetch，但底层想使用 axios 的场景。
 

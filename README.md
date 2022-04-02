@@ -48,6 +48,8 @@
   - [axios-jsonp](./packages/axios-jsonp/readme.md)
   - [axios-retry](./packages/axios-retry/readme.md)
   - [axios-extensions](./packages/axios-extensions/readme.md)
+  - [axios-fetch](./packages/axios-fetch/readme.md)
+  - [axios-tools](./packages/axios-tools/readme.md)
 
 学习 nodejs，从下面的方向开始
 
