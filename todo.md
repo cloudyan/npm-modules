@@ -20,6 +20,18 @@
 14. [ ] ni
 15. [ ] dotenv
 16. [ ] lru && lru-cache && quick-lru cacheables
+17. axios-xxx
+    1. [x] axios-retry
+    2. [x] axios-jsonp
+    3. [x] axios-extensions
+    4. [x] axios-fetch
+    5. [x] axios-tools
+18. storage
+    1. [localforage](https://www.npmjs.com/package/localforage) 1.8M
+    2. [continuation-local-storage](https://www.npmjs.com/package/continuation-local-storage) 1.6M
+    3. [store](https://www.npmjs.com/package/store) 0.2M
+    4. lowdb
+
 
 ## vue 生态
 
@@ -83,8 +95,12 @@
 - supertest
 - copy-to-clipboard
 - update-notifier
-- axios-retry
 - co
+- [cacache](https://www.npmjs.com/package/cacache)
+- [keyv](https://www.npmjs.com/package/keyv)
+- [memory-cache](https://www.npmjs.com/package/memory-cache)
+- [degit](https://www.npmjs.com/package/degit) 制作 git 存储库的副本
+- [magic-string](https://github.com/Rich-Harris/magic-string)
 
 ## DIY
 
