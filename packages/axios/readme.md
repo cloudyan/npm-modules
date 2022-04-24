@@ -69,6 +69,10 @@ axios 是最著名的 Javascript 请求库之一。
 ```js
 const axios = require('axios');
 
+// const instance = axios.create({
+//   baseURL: conf.apiBaseUrl,
+// });
+
 // 向给定ID的用户发起请求
 axios.get('/user',{
     params: {
@@ -122,7 +126,90 @@ async function getUser() {
 8. 工具方法 helpers
 
 
-调用流程：初始化Axios——> 注册拦截器 ——> 请求拦截——> ajax请求 ——> 响应拦截 ——> 请求响应回调
+调用流程：初始化Axios——> 注册拦截器 ——> 请求拦截——> 发起请求 ——> 响应拦截 ——> 请求响应回调
+
+NOTE: 画一张图，讲明白整个 Axios 的源码设计
+
+### 初始化
+
+axios 入口
+
+> axios 是函数，也是对象
+> 作为函数时，调用的是 `Axios.prototype.request`
+
+```js
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  var context = new Axios(defaultConfig);
+
+  var instance = bind(Axios.prototype.request, context); // axios 是函数
+
+  // Copy axios.prototype to instance
+  // Copy get post put delete head options patch
+  utils.extend(instance, Axios.prototype, context); // 也是对象
+
+  // Copy context to instance
+  // Copy Axios.defaults, Axios.interceptors
+  utils.extend(instance, context);
+
+  // Factory for creating new instances
+  // 工厂模式 创建新的实例, 相比 axios 多了自定义配置
+  instance.create = function create(instanceConfig) {
+    return createInstance(mergeConfig(defaultConfig, instanceConfig));
+  };
+
+  return instance;
+}
+
+// Create the default instance to be exported
+var axios = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+axios.Axios = Axios;
+
+module.exports = axios;
+module.exports.default = axios;
+```
+
+关于 Axios
+
+```js
+function Axios(instanceConfig) {
+  this.defaults = instanceConfig;
+  this.interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager()
+  };
+}
+
+// 其他方法都挂载在 prototype 上
+// function request(configOrUrl, config) {}
+Axios.prototype.request
+// request 是最核心的方法，包含
+// - mergeConfig
+// - requestInterceptorChain
+//   - interceptors.request 请求拦截器
+//   - dispatchRequest -> adapter
+//   - interceptors.response 响应拦截器
+
+
+// function getUri(config) { return buildURL() }
+Axios.prototype.getUri
+
+// function(url, config) {
+Axios.prototype
+['delete', 'get', 'head', 'options']
+
+// function(url, data, config) {}
+Axios.prototype
+['post', 'put', 'patch']
+
+```
 
 ### 适配器设计
 
@@ -319,6 +406,10 @@ controller.abort(); // 不支持 message 参数
 关于 [cancelable promises](https://github.com/whatwg/fetch/issues/447) 提案已撤销
 
 axios 的核心逻辑实现在这里 https://github.com/axios/axios/blob/master/lib/core/dispatchRequest.js#L12
+
+```js
+
+```
 
 ### 数据安全 CSRF 防御
 
