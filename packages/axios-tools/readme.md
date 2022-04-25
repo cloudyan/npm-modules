@@ -53,10 +53,10 @@ export const request = instance;
 ```js
 import { request } from '@/utils/request'
 
-export function getConfig(params = {}) {
+export function getConfig(data = {}) {
   return request('/common/initconfig', {
     method: 'GET',
-    params,
+    params: data,
   })
 }
 ```

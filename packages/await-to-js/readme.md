@@ -40,7 +40,7 @@ async function asyncTask(cb) {
   }
 
   try {
-     const savedTask = await TaskModel({userId: user.id, name: 'Demo Task'});
+    const savedTask = await TaskModel({userId: user.id, name: 'Demo Task'});
   } catch(e) {
     return cb('Error occurred while saving task');
   }
