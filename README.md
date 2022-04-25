@@ -50,6 +50,17 @@
   - [axios-extensions](./packages/axios-extensions/readme.md)
   - [axios-fetch](./packages/axios-fetch/readme.md)
   - [axios-tools](./packages/axios-tools/readme.md)
+  - [ky-universal](./packages/ky-universal/readme.md)
+- 016.【storage】
+  - [localforage](./packages/localforage/readme.md)
+  - [lowdb](./packages/lowdb/readme.md)
+  - [storage](./packages/storage/readme.md)
+  - [configstore](./packages/configstore/readme.md)
+- 017.【uuid】
+  - [nanoid](./packages/nanoid/readme.md)
+  - [uuid](./packages/uuid/readme.md)
+- 018.[degit](./packages/degit/readme.md)
+- 019.[open](./packages/open/readme.md)
 
 学习 nodejs，从下面的方向开始
 
