@@ -362,6 +362,23 @@ setTimeout(function () {
 
 > 拦截器不要返回数据，依然返回这个 AxiosResponse 对象
 
+如果是错误的情况呢，返回的是 AxiosError 对象，大体结构如下
+
+```js
+// AxiosError
+{
+  name: 'AxiosError',
+  message?: string,
+  code?: string,
+  config?: AxiosRequestConfig<D>,
+  request?: any,
+  response?: AxiosResponse<T, D>
+  isAxiosError: boolean;
+  status?: string;
+  toJSON: () => object;
+}
+```
+
 ### 取消请求设计
 
 axios 使用 cancel token 取消一个请求。（已弃用，推荐使用 `AbortController`）
