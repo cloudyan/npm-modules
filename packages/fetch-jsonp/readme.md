@@ -33,3 +33,8 @@ fetchJsonp('/users.jsonp', {
 ## 源码分析
 
 源码比较简单，直接查看即可
+
+## 扩展
+
+- `fetch-jsonp` vs `axios-jsonp`
+
