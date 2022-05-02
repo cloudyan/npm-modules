@@ -101,6 +101,8 @@
 - [memory-cache](https://www.npmjs.com/package/memory-cache)
 - [degit](https://www.npmjs.com/package/degit) 制作 git 存储库的副本
 - [magic-string](https://github.com/Rich-Harris/magic-string)
+- number-precision
+- es6-deferred
 
 ## DIY
 
