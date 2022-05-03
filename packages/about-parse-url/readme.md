@@ -58,3 +58,19 @@ console.log(URL === globalThis.URL); // 打印 'true'.
 import url from 'url';
 const myURL = url.parse('https://user:pass@sub.example.com:8080/p/a/t/h?query=string#hash');
 ```
+
+一些知名库
+
+- url: nodejs 内置模块，用于网址处理和解析
+- querystring: nodejs 内置模块，解析和格式化网址查询字符串
+- qs: 64M, A querystring parsing and stringifying library with some added security.
+- query-string: 16M, Parse and stringify URL query strings
+- normalize-url: 32M, Normalize a URL 规范化 URL
+
+url 解析
+
+- url-parse: 10M, 跨 Node.js 和浏览器环境无缝工作的小型 URL 解析器
+- url-pattern: 137K,
+- parse-url: 3M, An advanced url parser supporting git urls too.
+- parse-path: 3M, Parse paths (local paths, urls: ssh/git/etc)
+- parseurl: 21M, 基于 nodejs 内置模块 url 实现
