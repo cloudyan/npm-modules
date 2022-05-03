@@ -26,6 +26,7 @@
 - [debugging 调试](https://github.com/cloudyan/debugging)
   - [调试JS代码](https://juejin.cn/post/7030584939020042254)
 - [为什么源码分析味同嚼蜡？浅析技术写作中的思维误区](https://juejin.cn/post/6844903512669700109)
+- [如何阅读大型前端开源项目的源码](https://zhuanlan.zhihu.com/p/36996225)
 
 ## 列表
 
