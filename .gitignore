@@ -63,3 +63,4 @@ yarn.lock
 temp.*
 source/
 temp/
+.DS_Store
