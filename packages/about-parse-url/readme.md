@@ -65,7 +65,6 @@ const myURL = url.parse('https://user:pass@sub.example.com:8080/p/a/t/h?query=st
 - querystring: nodejs 内置模块，解析和格式化网址查询字符串
 - qs: 64M, A querystring parsing and stringifying library with some added security.
 - query-string: 16M, Parse and stringify URL query strings
-- normalize-url: 32M, Normalize a URL 规范化 URL
 
 url 解析
 
@@ -74,3 +73,29 @@ url 解析
 - parse-url: 3M, An advanced url parser supporting git urls too.
 - parse-path: 3M, Parse paths (local paths, urls: ssh/git/etc)
 - parseurl: 21M, 基于 nodejs 内置模块 url 实现
+- normalize-url: 32M, Normalize a URL 规范化 URL
+
+
+网址处理和解析
+
+```js
+function parseUrl(url) {
+  return {
+    href: ''
+      origin: '',
+        protocol: '',
+        // // auth: '',
+        // username: '',
+        // password: '',
+
+        host: ''
+          hostname: ''
+          port: ''
+      pathname: '',
+      search: '',
+        query: '',
+      hash: ''
+    slashes: '',
+  }
+}
+```
