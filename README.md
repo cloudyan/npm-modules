@@ -30,6 +30,12 @@
 
 ## 列表
 
+- about-async
+  - [【await-to-js】流程控制](./packages/about-async/await-to-js/readme.md)
+  - [【delay】带取消功能的延迟函数](./packages/about-async/delay/readme.md)
+  - [【p-queue】](./packages/about-async/p-queue/readme.md)
+  - [【p-limit】](./packages/about-async/p-limit/readme.md)
+  - [【p-throttle】](./packages/about-async/p-throttle/readme.md)
 - about-axios
   - [【axios】中的 `utils` 工具函数](./packages/about-axios/axios/utils.md)
   - [axios-jsonp](./packages/about-axios/axios-jsonp/readme.md)
@@ -68,11 +74,9 @@
   - [uuid](./packages/about-uuid/uuid/readme.md)
 - other
   - [【remote-git-tags】callback promisify 化的 Node.js 源码实现](./packages/remote-git-tags/readme.md)
-  - [【await-to-js】流程控制](./packages/await-to-js/readme.md)
   - [【vue2】中的 `shared` 工具函数](./packages/vue2/vue2-shared.md)
   - [【vue3】中的 `shared` 工具函数](./packages/vue3/vue3-shared.md)
   - [【emitter】发布订阅](./packages/emitter/readme.md)
-  - [【delay】带取消功能的延迟函数](./packages/delay/readme.md)
 
 学习 nodejs，从下面的方向开始
 

@@ -100,9 +100,29 @@
 - [keyv](https://www.npmjs.com/package/keyv)
 - [memory-cache](https://www.npmjs.com/package/memory-cache)
 - [degit](https://www.npmjs.com/package/degit) 制作 git 存储库的副本
+  - https://shenlvmeng.github.io/blog/2019/11/15/degit-improvement/
 - [magic-string](https://github.com/Rich-Harris/magic-string)
 - number-precision
 - es6-deferred
+- cz-customizable
+- lint-staged
+- [cosmiconfig](https://www.npmjs.com/package/cosmiconfig) Cosmiconfig searches for and loads configuration for your program.
+- npm-run-all
+- [mrm](https://mrm.js.org/) Codemods for your project config files
+- [vitest](https://cn.vitest.dev/) 极速单元测试框架
+- [tinypool](https://github.com/tinylibs/tinypool) 使用 Worker 线程尽可能多地并发运行
+- [tinyspy](https://github.com/tinylibs/tinyspy) 用于对象模拟(Mock)
+- [tinybench](https://github.com/tinylibs/tinybench) A benchmarking library. As used on jsPerf.com.
+- [c8](https://github.com/bcoe/c8) 来输出代码测试覆盖率
+- [say.js](https://github.com/Marak/say.js)
+- [surge-preview](https://github.com/afc163/surge-preview)
+- [fanyi](https://github.com/afc163/fanyi)
+- [plasmo](https://github.com/PlasmoHQ/plasmo)
+- [is-ci](https://github.com/watson/is-ci)
+  - [ci-info](https://github.com/watson/ci-info)
+- [https-pem](https://github.com/watson/https-pem)
+- [archer-svgs](https://github.com/ShanaMaid/archer-svgs) 异步加载svg解决方案
+- [human-id](https://github.com/RienNeVaPlus/human-id)
 
 ## DIY
 

@@ -21,11 +21,11 @@ axios 是最著名的 Javascript 请求库之一。
 
 ### 设计理论
 
-![axios-design](../../assets/axios-design.png)
+![axios-design](../../../assets/axios-design.png)
 
 ### 请求配置
 
-![axios-configs](../../assets/axios-configs.png)
+![axios-configs](../../../assets/axios-configs.png)
 
 关于请求配置参数，参见 [axios 文档](https://axios-http.com/zh/docs/req_config)
 
@@ -398,8 +398,8 @@ const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
 
 axios.get('/user/12345', {
-  cancelToken: source.token,
-  signal: controller.signal
+  cancelToken: source.token, // 不要同时使用
+  signal: controller.signal,
 }).catch(function (thrown) {
   if (axios.isCancel(thrown)) {
     console.log('Request canceled', thrown.message);
