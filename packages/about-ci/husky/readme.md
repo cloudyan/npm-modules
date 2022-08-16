@@ -286,3 +286,7 @@ npm set-script prepare "husky install"
 在 CI/Docker/Prod 中禁用 `husky`?
 
 参见[官方文档](https://typicode.github.io/husky/#/?id=disable-husky-in-cidockerprod)
+
+参考文档
+
+- https://www.jianshu.com/p/3e2df03f63f3
