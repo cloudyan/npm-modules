@@ -49,6 +49,7 @@
 - v-click-outside
 - vue-release
 - Snabbdom (Virtual DOM) https://juejin.cn/post/6941009454376681479
+- petite-vue          https://github.com/vuejs/petite-vue
 
 ## react 生态
 
