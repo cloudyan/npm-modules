@@ -31,52 +31,59 @@
 ## 列表
 
 - about-async
-  - [【await-to-js】流程控制](./packages/about-async/await-to-js/readme.md)
-  - [【delay】带取消功能的延迟函数](./packages/about-async/delay/readme.md)
-  - [【p-queue】](./packages/about-async/p-queue/readme.md)
-  - [【p-limit】](./packages/about-async/p-limit/readme.md)
-  - [【p-throttle】](./packages/about-async/p-throttle/readme.md)
-- about-axios
-  - [【axios】中的 `utils` 工具函数](./packages/about-axios/axios/utils.md)
-  - [axios-jsonp](./packages/about-axios/axios-jsonp/readme.md)
-  - [axios-retry](./packages/about-axios/axios-retry/readme.md)
-  - [axios-extensions](./packages/about-axios/axios-extensions/readme.md)
-  - [axios-fetch](./packages/about-axios/axios-fetch/readme.md)
-  - [axios-tools](./packages/about-axios/axios-tools/readme.md)
-  - [ky-universal](./packages/about-axios/ky-universal/readme.md)
+  - [x] [【await-to-js】流程控制](./packages/about-async/await-to-js/readme.md)
+  - [x] [【delay】带取消功能的延迟函数](./packages/about-async/delay/readme.md)
+  - [ ] [【p-queue】](./packages/about-async/p-queue/readme.md)
+  - [ ] [【p-limit】](./packages/about-async/p-limit/readme.md)
+  - [ ] [【p-throttle】](./packages/about-async/p-throttle/readme.md)
 - about-ci
-  - [【configstore】轻松加载和持久化配置，无需考虑位置和方式](./packages/about-ci/configstore/readme.md)
-    - [【dot-prop】](./packages/about-ci/configstore/dot-prop.md)
-  - [【cross-env】跨平台设置及使用环境变量](./packages/about-ci/cross-env/readme.md)
-  - [open](./packages/about-ci/open/readme.md)
+  - [x] [【configstore】轻松加载和持久化配置，无需考虑位置和方式](./packages/about-ci/configstore/readme.md)
+    - [x] [【dot-prop】](./packages/about-ci/configstore/dot-prop.md)
+  - [x] [【cross-env】跨平台设置及使用环境变量](./packages/about-ci/cross-env/readme.md)
+  - [ ] [open](./packages/about-ci/open/readme.md)
+- about-framework
+  - [x] [【vue2/shared】中的工具函数](./packages/about-framework/vue2/vue2-shared.md)
+  - [x] [【vue3/shared】中的工具函数](./packages/about-framework/vue3/vue3-shared.md)
+- about-hooks
+  - [ ] ahooks
 - about-npm
-  - [【validate-npm-package-name】检测 npm 包是否符合标准](./packages/about-npm/validate-npm-package-name/readme.md)
-  - [【only-allow】一行代码统一规范团队包管理器的神器](./packages/about-npm/only-allow/readme.md)
-  - [【install-pkg】以编程方式安装包。自动检测包管理器（npm、yarn 和 pnpm）](./packages/about-npm/pkg-install/readme.md)
-  - [【ni】use the right package manager](./packages/about-npm/ni/readme.md)
+  - [x] [【validate-npm-package-name】检测 npm 包是否符合标准](./packages/about-npm/validate-npm-package-name/readme.md)
+  - [x] [【only-allow】一行代码统一规范团队包管理器的神器](./packages/about-npm/only-allow/readme.md)
+  - [x] [【install-pkg】以编程方式安装包。自动检测包管理器（npm、yarn 和 pnpm）](./packages/about-npm/pkg-install/readme.md)
+  - [x] [【ni】use the right package manager](./packages/about-npm/ni/readme.md)
 - about-parse-url
-  - [parse-path](./packages/about-parse-url/parse-path/readme.md)
-  - [parse-url](./packages/about-parse-url/parse-url/readme.md)
-  - [parseurl](./packages/about-parse-url/parseurl/readme.md)
-  - [url-parse](./packages/about-parse-url/url-parse/readme.md)
-  - [url-pattern](./packages/about-parse-url/url-pattern/readme.md)
+  - [ ] [parse-path](./packages/about-parse-url/parse-path/readme.md)
+  - [ ] [parse-url](./packages/about-parse-url/parse-url/readme.md)
+  - [ ] [parseurl](./packages/about-parse-url/parseurl/readme.md)
+  - [ ] [url-parse](./packages/about-parse-url/url-parse/readme.md)
+  - [ ] [url-pattern](./packages/about-parse-url/url-pattern/readme.md)
+- about-request
+  - [x] [【axios/utils】中的工具函数](./packages/about-request/axios/utils.md)
+  - [x] [axios](./packages/about-request/axios/readme.md)
+  - [x] [axios-jsonp](./packages/about-request/axios-jsonp/readme.md)
+  - [x] [axios-retry](./packages/about-request/axios-retry/readme.md)
+  - [x] [axios-extensions](./packages/about-request/axios-extensions/readme.md)
+  - [x] [axios-fetch](./packages/about-request/axios-fetch/readme.md)
+  - [axios-tools](./packages/about-request/axios-tools/readme.md)
+  - [ky-universal](./packages/about-request/ky-universal/readme.md)
+  - [axios vs fetch](./packages/about-request/readme.md)
+  - [universal-request](./packages/about-request/universal-request/readme.md)
 - about-storage
-  - [【js-cookie】Cookie 的封装，简单、轻量、好用](./packages/js-cookie/readme.md)
-  - [localforage](./packages/about-storage/localforage/readme.md)
-  - [lowdb](./packages/about-storage/lowdb/readme.md)
-  - [storage](./packages/about-storage/storage/readme.md)
+  - [x] [【js-cookie】Cookie 的封装，简单、轻量、好用](./packages/js-cookie/readme.md)
+  - [x] [localforage](./packages/about-storage/localforage/readme.md)
+  - [ ] [lowdb](./packages/about-storage/lowdb/readme.md)
+  - [ ] [storage](./packages/about-storage/storage/readme.md)
 - about-tpl
-  - [degit](./packages/about-tpl/degit/readme.md)
-  - [create-vite](./packages/about-tpl/create-vite/readme.md)
-  - [create-tpl](./packages/about-tpl/create-tpl/readme.md)
+  - [ ] [degit](./packages/about-tpl/degit/readme.md)
+  - [ ] [create-vite](./packages/about-tpl/create-vite/readme.md)
+  - [ ] [create-tpl](./packages/about-tpl/create-tpl/readme.md)
 - about-uuid
-  - [nanoid](./packages/about-uuid/nanoid/readme.md)
-  - [uuid](./packages/about-uuid/uuid/readme.md)
+  - [ ] [nanoid](./packages/about-uuid/nanoid/readme.md)
+  - [x] [uuid](./packages/about-uuid/uuid/readme.md)
 - other
-  - [【remote-git-tags】callback promisify 化的 Node.js 源码实现](./packages/remote-git-tags/readme.md)
-  - [【vue2】中的 `shared` 工具函数](./packages/vue2/vue2-shared.md)
-  - [【vue3】中的 `shared` 工具函数](./packages/vue3/vue3-shared.md)
-  - [【emitter】发布订阅](./packages/emitter/readme.md)
+  - [x] [【emitter】发布订阅](./packages/emitter/readme.md)
+  - [x] [【remote-git-tags】callback promisify 化的 Node.js 源码实现](./packages/remote-git-tags/readme.md)
+  - [ ] [simple-git-hooks](./packages/simple-git-hooks/readme.md)
 
 学习 nodejs，从下面的方向开始
 

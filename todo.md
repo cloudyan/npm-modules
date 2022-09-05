@@ -108,7 +108,7 @@
 - cz-customizable
 - lint-staged
 - [cosmiconfig](https://www.npmjs.com/package/cosmiconfig) Cosmiconfig searches for and loads configuration for your program.
-- npm-run-all
+- [npm-run-all](https://www.npmjs.com/package/npm-run-all) A CLI tool to run multiple npm-scripts in parallel or sequential.
 - [mrm](https://mrm.js.org/) Codemods for your project config files
 - [vitest](https://cn.vitest.dev/) 极速单元测试框架
 - [tinypool](https://github.com/tinylibs/tinypool) 使用 Worker 线程尽可能多地并发运行

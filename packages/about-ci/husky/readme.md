@@ -71,59 +71,18 @@ npm uninstall husky && git config --unset core.hooksPath
 
 ## 源码分析
 
-husky 源码非常精简
+husky 源码比较精简，共三个文件
 
-**bin.ts**
+- src/index.ts
+- src/bin.ts
+- husky.sh
 
-```ts
-#!/usr/bin/env node
-import p = require('path')
-import h = require('./')
+**src/index.ts**
 
-// Show usage and exit with code
-function help(code: number) {
-  console.log(`Usage:
-  husky install [dir] (default: .husky)
-  husky uninstall
-  husky set|add <file> [cmd]`)
-  process.exit(code)
-}
-
-// Get CLI arguments
-const [, , cmd, ...args] = process.argv
-const ln = args.length
-const [x, y] = args
-
-// Set or add command in hook
-const hook = (fn: (a1: string, a2: string) => void) => (): void =>
-  // Show usage if no arguments are provided or more than 2
-  !ln || ln > 2 ? help(2) : fn(x, y)
-
-// CLI commands
-const cmds: { [key: string]: () => void } = {
-  install: (): void => (ln > 1 ? help(2) : h.install(x)),
-  uninstall: h.uninstall,
-  set: hook(h.set),
-  add: hook(h.add),
-  ['-v']: () =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-var-requires
-    console.log(require(p.join(__dirname, '../package.json')).version),
-}
-
-// Run CLI
-try {
-  // Run command or show usage for unknown command
-  cmds[cmd] ? cmds[cmd]() : help(0)
-} catch (e) {
-  console.error(e instanceof Error ? `husky - ${e.message}` : e)
-  process.exit(1)
-}
-```
-
-**index.ts**
+这里包含了，git 命令操作，huksy 的 install, set, add, uninstall 命令操作。
 
 ```ts
-import cp = require('child_process')
+import cp = require('child_process') // 子进程
 import fs = require('fs')
 import p = require('path')
 
@@ -132,8 +91,21 @@ const l = (msg: string): void => console.log(`husky - ${msg}`)
 
 // Git command
 const git = (args: string[]): cp.SpawnSyncReturns<Buffer> =>
+  // 同步执行 git 命令
   cp.spawnSync('git', args, { stdio: 'inherit' })
 
+/**
+ * install 初始化设置
+ * 1. git rev-parse 底层命令
+ * 2. 创建 .husky 必须在 cwd 当前目录
+ * 3. 必须存在 .git 文件，否则无法操作 .git/config
+ * 4. 创建文件
+ *    1. 在 .husky 文件下创建文件夹 '_'
+ *    2. 在 '_' 文件下写入文件 .gitignore, 文件内容为 ‘*’, 忽略该目录下所有文件的 git 提交
+ *    3. 复制 husky 项目根目录下的 husky.sh 文件 到 目标项目的 '_' 目录下，名称不变
+ *    4. 执行 git 操作，修改 githook 的执行路径为目标项目的 .husky 文件下
+ *    5. 执行成功 or 失败后的 log 提示
+*/
 export function install(dir = '.husky'): void {
   if (process.env.HUSKY === '0') {
     l('HUSKY env variable is set to 0, skipping install')
@@ -183,6 +155,12 @@ export function install(dir = '.husky'): void {
   l('Git hooks installed')
 }
 
+/**
+ * set: 创建指定的 githook 文件，并写入文件内容
+ * 1. 如果文件目录不存在, 中断并提示手动执行 husky install 初始化配置
+ * 2. 写入文件, 指定解释器为 sh 执行 shell 脚本, cmd 动态参数，为开发者想要在这个 githook 阶段执行的操作，一般为脚本 例：npm run lint
+ *    这里有配置文件权限，755。
+*/
 export function set(file: string, cmd: string): void {
   const dir = p.dirname(file)
   if (!fs.existsSync(dir)) {
@@ -204,6 +182,11 @@ ${cmd}
   l(`created ${file}`)
 }
 
+/**
+ * add: 在已有的 githook 文件中追加命令
+ * 1. 已存在则追加内容
+ * 2. 不存在则新建
+ */
 export function add(file: string, cmd: string): void {
   if (fs.existsSync(file)) {
     fs.appendFileSync(file, `${cmd}\n`)
@@ -213,9 +196,134 @@ export function add(file: string, cmd: string): void {
   }
 }
 
+/**
+ * uninstall: 卸载 install 中指定的 hooksPath 的路径，恢复为 git 默认的 githook 路径
+*/
 export function uninstall(): void {
   git(['config', '--unset', 'core.hooksPath'])
 }
+
+```
+
+**src/bin.ts**
+
+用于接收命令行参数，执行 `src/index.ts` 中的命令操作
+
+```ts
+#!/usr/bin/env node         // 指定使用 node 解析运行文件
+import p = require('path')
+import h = require('./')
+
+// Show usage and exit with code
+// 打印帮助命令，这里没有使用 commander 包，而是使用进程方法获取参数，所以自己打印了帮助 log
+// 减少了依赖，更轻量精简
+function help(code: number) {
+  console.log(`Usage:
+  husky install [dir] (default: .husky)
+  husky uninstall
+  husky set|add <file> [cmd]`)
+  process.exit(code)
+}
+
+// Get CLI arguments
+const [, , cmd, ...args] = process.argv
+const ln = args.length
+const [x, y] = args
+
+// Set or add command in hook
+// 处理需要参数的主文件的函数并执行, 对错误的参数进行了长度判断
+const hook = (fn: (a1: string, a2: string) => void) => (): void =>
+  // Show usage if no arguments are provided or more than 2
+  !ln || ln > 2 ? help(2) : fn(x, y)
+
+// CLI commands
+// 没有参数的直接调用，需要参数的，套了一层 hook 函数，用于参数处理
+const cmds: { [key: string]: () => void } = {
+  install: (): void => (ln > 1 ? help(2) : h.install(x)),
+  uninstall: h.uninstall, // 没有参数直接调用
+  set: hook(h.set),
+  add: hook(h.add),
+  ['-v']: () =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-var-requires
+    console.log(require(p.join(__dirname, '../package.json')).version),
+}
+
+// Run CLI
+try {
+  // Run command or show usage for unknown command
+  // 令存在则运行指定函数，不存在则打印帮助 log
+  cmds[cmd] ? cmds[cmd]() : help(0)
+} catch (e) {
+  console.error(e instanceof Error ? `husky - ${e.message}` : e) // 打印 error 信息
+  process.exit(1) // 报错退出
+}
+```
+
+**husky.sh**
+
+githook
+
+```bash
+#!/bin/sh     # 指定该文件使用 shell 解析执行
+
+# 执行当前目录下指定的文件。
+# $0 为 当前脚本名称 调用 husky.sh 脚本
+. "$(dirname "$0")/_/husky.sh"
+
+npm test
+```
+
+husky.sh
+
+```bash
+#!/usr/bin/env sh
+
+# 判断变量 husky_skip_init 的长度是否为 0
+if [ -z "$husky_skip_init" ]; then
+  # 为 0 时， 创建 debug 函数, 用来打印报错日志
+  debug () {
+    # HUSKY_DEBUG 为 “1” 时打印
+    if [ "$HUSKY_DEBUG" = "1" ]; then
+      # // $1 表示参数
+      echo "husky (debug) - $1"
+    fi
+  }
+
+  # 声明一个只读参数, 内容为 basename + 文件名称
+  readonly hook_name="$(basename -- "$0")"
+  debug "starting $hook_name..."
+
+  # 判断变量 HUSKY 是否 = “0”
+  if [ "$HUSKY" = "0" ]; then
+    debug "HUSKY env variable is set to 0, skipping hook"
+    exit 0
+  fi
+
+  # 判断 ~/.huskyrc 是否为普通文件
+  if [ -f ~/.huskyrc ]; then
+    debug "sourcing ~/.huskyrc"
+    . ~/.huskyrc
+  fi
+
+  # 声明只读变量
+  readonly husky_skip_init=1
+  export husky_skip_init
+  # 当前文件名 是否在 传进来的参数中 存在则执行
+  sh -e "$0" "$@"
+  exitCode="$?"
+
+  # 当 exitCode 不等于 0 时，打印当前执行的 hook 名称，以及退出码
+  if [ $exitCode != 0 ]; then
+    echo "husky - $hook_name hook exited with code $exitCode (error)"
+  fi
+
+  # 当 exitCode 等于 127 时，提示找不到命令
+  if [ $exitCode = 127 ]; then
+    echo "husky - command not found in PATH=$PATH"
+  fi
+
+  exit $exitCode
+fi
 
 ```
 
