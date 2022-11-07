@@ -425,8 +425,86 @@ controller.abort(); // 不支持 message 参数
 axios 的核心逻辑实现在这里 https://github.com/axios/axios/blob/master/lib/core/dispatchRequest.js#L12
 
 ```js
+var outerCancelFn;
 
+config.cancelToken = new CancelToken(function executor(cancelFn) {
+  // 1. A Promise will be created in the constructor,
+  // and its `resolve` callback is saved temporarily
+
+  // 2. Wrap a callback `cancelFn` based on `resolve`,
+  // as the parameter of `executor`, and call `executor` immediately
+
+  /**
+   * In fact, `cancelFn` looks like,
+   *
+   * function cancelFn(message) {
+   *   // 1. create an instance of Cancel and save it as a member of CancelToken instance
+   *   // 2. invoke `resolve` with the saved Cancel instance
+   * }
+   */
+
+  // Save `cancelFn` in an outer value and call it with error message at any desirable time
+  // Why can it cancel the request?
+  // 1. `dispatchRequest` will check the member field of CancelToken, and throw it if found
+  // 2. adapters will wait the Promise to be resolved, and throw the resolved value
+  outerCancelFn = cancelFn;
+})
 ```
+
+分析:
+
+- https://juejin.cn/post/7029729114378469383
+- https://juejin.cn/post/7044532592640524324
+- https://juejin.cn/post/6844903910650413070
+- 修复内存泄露: https://github.com/axios/axios/pull/3305
+  - https://github.com/axios/axios/issues/1181
+  - 为了避免这种情况，每个请求都必须取消令牌，然后分配一个新令牌。
+
+核心代码
+
+```js
+var resolvePromise;
+
+this.promise = new Promise(function promiseExecutor(resolve) {
+  resolvePromise = resolve;
+});
+
+var token = this;
+
+// eslint-disable-next-line func-names
+this.promise.then(function(cancel) {
+  if (!token._listeners) return;
+
+  var i = token._listeners.length;
+
+  while (i-- > 0) {
+    token._listeners[i](cancel);
+  }
+  token._listeners = null;
+});
+
+// https://github.com/axios/axios/blob/main/lib/cancel/CancelToken.js#L37~L50
+// L37~L50 是不必要的，保留是为了向前兼容，解释:
+//    https://github.com/axios/axios/pull/3305/files#r947912940
+// 问题: 是先运行上面的 then 方法，还是先运行下面的 then 赋值?
+// eslint-disable-next-line func-names
+this.promise.then = function(onfulfilled) {
+  var _resolve;
+  // eslint-disable-next-line func-names
+  var promise = new Promise(function(resolve) {
+    token.subscribe(resolve);
+    _resolve = resolve;
+  }).then(onfulfilled);
+
+  promise.cancel = function reject() {
+    token.unsubscribe(_resolve);
+  };
+
+  return promise;
+};
+```
+
+验证 demo
 
 ### 数据安全 CSRF 防御
 
@@ -480,6 +558,7 @@ Axios 内部是使用 **双重 Cookie 防御** 的方案来防御 CSRF 攻击，
     - 同构需求，请查看 [ky-universal](https://www.npmjs.com/package/got)
   - [node-libcurl](https://www.npmjs.com/package/node-libcurl)
   - [superagent](https://www.npmjs.com/package/superagent)
+  - [KoAJAX](https://github.com/EasyWebApp/KoAJAX)
 
 这里有几个，还是非常实用的
 

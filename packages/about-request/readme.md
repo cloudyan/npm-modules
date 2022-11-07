@@ -81,6 +81,7 @@ Response 对象提供Response.clone()方法，创建Response对象的副本，�
 
 Response 对象还有一个Response.redirect()方法，用于将 Response 结果重定向到指定的 URL。该方法一般只用在 Service Worker 里面
 
+
 参考文档
 
 - https://www.ruanyifeng.com/blog/2020/12/fetch-tutorial.html
