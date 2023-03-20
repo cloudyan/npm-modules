@@ -6,6 +6,8 @@
 - fetch 采用模块化设计，API 分散在多个对象上（Response 对象、Request 对象、Headers 对象），更合理一些；相比之下，XMLHttpRequest 的 API 设计并不是很好，输入、输出、状态都在同一个接口管理，容易写出非常混乱的代码。
 - fetch 通过数据流（Stream 对象）处理数据，可以分块读取，有利于提高网站性能表现，减少内存占用，对于请求大文件或者网速慢的场景相当有用。XMLHTTPRequest 对象不支持数据流，所有的数据必须放在缓存里，不支持分块读取，必须等待全部拿到后，再一次性吐出来。
 
+fetch vs axios
+
 - 如果使用 PWA service worker 执行缓存, 仅支持 fetchApi, axios 无法使用
 - fetch 的 body 必须被字符串化 `JSON.stringify`，axios 的 data 包含对象, 支持转为 json
 - fetch 的 request 对象没有 url，axios 的 request 对象中有 url

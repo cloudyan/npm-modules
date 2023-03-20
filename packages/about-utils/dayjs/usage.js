@@ -17,13 +17,15 @@ function getDateTime() {
     dayjs,
     now: now.unix(),
     todayStart: todayStart.unix(),
-    format(unix, format = 'MM-DD HH:mm:ss') { return dayjs(unix*1000).format(format) }
+    format(unix, format = 'YYYMM-DD HH:mm:ss') {
+      return dayjs(unix*1000).format(format)
+    }
   }
 }
 function getTime() {
   const dateTime = getDateTime()
   const to = dateTime.now
-  const from = dateTime.now - 60*60
+  const from = dateTime.now - 3600
 
   return {
     from,
@@ -41,4 +43,5 @@ console.log('周': dayjs().day())
 // console.log(now.month(), now.month(0).format())
 
 // 处理 unix
+format(from, 'MM-DD HH:mm')
 
