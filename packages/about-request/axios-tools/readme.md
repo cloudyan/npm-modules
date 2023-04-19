@@ -9,6 +9,8 @@
   - cache
   - throttle
   - session-refresh
+- 底层使用 fetch 实现
+  - axios-fetch-adapter
 
 ## 目标
 
