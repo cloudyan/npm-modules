@@ -1,5 +1,14 @@
 const dayjs = require('dayjs')
 
+// 实现一个符合常规逻辑的时间范围选择
+// 如 ['2023-04-17', '2023-04-19'] 表示可选时间范围为 4-17零点开始，4-20零点结束
+// console.log(dayjs('2023-04-19').unix() === dayjs('2023-04-19').startOf('day').unix())
+console.log(dayjs('2023-04-19').startOf('day').format())
+console.log(dayjs('2023-04-19').endOf('day').format())
+
+// format:
+// YYYY/[Q]Q/MM/年第w周/星期d/DDTHH:mm:ss
+
 // test
 const now = dayjs() // 等同 dayjs(new Date())
 console.log(now.unix(), +new Date(), now.format())

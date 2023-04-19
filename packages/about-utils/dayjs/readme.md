@@ -84,10 +84,13 @@ const now = dayjs();
 
 
 // 时间点
+console.log(dayjs('2023-04-19').unit())
 const nowSeconds = now.unit() // Unix 时间戳秒数
 const nowMilliseconds = now.valueOf() // Unix 时间戳毫秒数
 const todayStart = now.startOf('date')
 const todayEnd = now.endOf('date')
+
+// startOf('date') 与 startOf('day') 相同，都是当天零点
 
 
 // 相对时间与绝对时间
