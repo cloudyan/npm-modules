@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/cloudyan/npm-modules/issues"
   },
-  "homepage": "https://github.com/cloudyan/npm-modules#readme"
+  "homepage": "https://github.com/cloudyan/npm-modules#readme",
+  "dependencies": {
+    "dayjs": "^1.11.7"
+  }
 }
