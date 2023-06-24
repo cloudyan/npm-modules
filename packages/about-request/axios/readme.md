@@ -1,12 +1,11 @@
 # axios
 
-Axios 是一个基于 promise 网络请求库，作用于node.js 和浏览器中。 它是 [isomorphic](https://www.lullabot.com/articles/what-is-an-isomorphic-application) 的(即同一套代码可以运行在浏览器和node.js中)。在服务端它使用原生 node.js http 模块, 而在客户端 (浏览端) 则使用 XMLHttpRequests。
+Axios 是一个基于 promise 网络请求库，作用于 node.js 和浏览器中。 它是 [isomorphic](https://www.lullabot.com/articles/what-is-an-isomorphic-application) 的(即同一套代码可以运行在浏览器和 node.js 中)。在服务端它使用原生 node.js http 模块, 而在客户端 (浏览端) 则使用 XMLHttpRequests。
 
 axios 是最著名的 Javascript 请求库之一。
 
 - https://www.npmjs.com/package/axios
 - https://github.com/axios/axios
-
 
 阅读源码前应详细阅读 [axios 官方文档](https://axios-http.com/docs/intro), 以及 README.md 说明文件。
 
@@ -67,37 +66,38 @@ axios 是最著名的 Javascript 请求库之一。
 ## 使用
 
 ```js
-const axios = require('axios');
+const axios = require('axios')
 
 // const instance = axios.create({
 //   baseURL: conf.apiBaseUrl,
 // });
 
 // 向给定ID的用户发起请求
-axios.get('/user',{
+axios
+  .get('/user', {
     params: {
       ID: 12345,
-    }
+    },
   })
   .then(function (response) {
     // 处理成功情况
-    console.log(response);
+    console.log(response)
   })
   .catch(function (error) {
     // 处理错误情况
-    console.log(error);
+    console.log(error)
   })
   .then(function () {
     // 总是会执行
-  });
+  })
 
 // 支持async/await用法
 async function getUser() {
   try {
-    const response = await axios.get('/user?ID=12345');
-    console.log(response);
+    const response = await axios.get('/user?ID=12345')
+    console.log(response)
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 ```
@@ -125,8 +125,7 @@ async function getUser() {
    1. 跨站请求伪造（Cross-site request forgery）
 8. 工具方法 helpers
 
-
-调用流程：初始化Axios——> 注册拦截器 ——> 请求拦截——> 发起请求 ——> 响应拦截 ——> 请求响应回调
+调用流程：初始化 Axios——> 注册拦截器 ——> 请求拦截——> 发起请求 ——> 响应拦截 ——> 请求响应回调
 
 NOTE: 画一张图，讲明白整个 Axios 的源码设计
 
@@ -145,46 +144,46 @@ axios 入口
  * @return {Axios} A new instance of Axios
  */
 function createInstance(defaultConfig) {
-  var context = new Axios(defaultConfig);
+  var context = new Axios(defaultConfig)
 
-  var instance = bind(Axios.prototype.request, context); // axios 是函数
+  var instance = bind(Axios.prototype.request, context) // axios 是函数
 
   // Copy axios.prototype to instance
   // Copy get post put delete head options patch
-  utils.extend(instance, Axios.prototype, context); // 也是对象
+  utils.extend(instance, Axios.prototype, context) // 也是对象
 
   // Copy context to instance
   // Copy Axios.defaults, Axios.interceptors
-  utils.extend(instance, context);
+  utils.extend(instance, context)
 
   // Factory for creating new instances
   // 工厂模式 创建新的实例, 相比 axios 多了自定义配置
   instance.create = function create(instanceConfig) {
-    return createInstance(mergeConfig(defaultConfig, instanceConfig));
-  };
+    return createInstance(mergeConfig(defaultConfig, instanceConfig))
+  }
 
-  return instance;
+  return instance
 }
 
 // Create the default instance to be exported
-var axios = createInstance(defaults);
+var axios = createInstance(defaults)
 
 // Expose Axios class to allow class inheritance
-axios.Axios = Axios;
+axios.Axios = Axios
 
-module.exports = axios;
-module.exports.default = axios;
+module.exports = axios
+module.exports.default = axios
 ```
 
 关于 Axios
 
 ```js
 function Axios(instanceConfig) {
-  this.defaults = instanceConfig;
+  this.defaults = instanceConfig
   this.interceptors = {
     request: new InterceptorManager(),
-    response: new InterceptorManager()
-  };
+    response: new InterceptorManager(),
+  }
 }
 
 // 其他方法都挂载在 prototype 上
@@ -197,18 +196,14 @@ Axios.prototype.request
 //   - dispatchRequest -> adapter
 //   - interceptors.response 响应拦截器
 
-
 // function getUri(config) { return buildURL() }
 Axios.prototype.getUri
 
 // function(url, config) {
-Axios.prototype
-['delete', 'get', 'head', 'options']
+Axios.prototype[('delete', 'get', 'head', 'options')]
 
 // function(url, data, config) {}
-Axios.prototype
-['post', 'put', 'patch']
-
+Axios.prototype[('post', 'put', 'patch')]
 ```
 
 ### 适配器设计
@@ -218,7 +213,7 @@ Axios.prototype
 具体实现参见官方的两个适配器 xhr.js 和 http.js
 
 ```js
-var settle = require('axios/lib/core/settle');
+var settle = require('axios/lib/core/settle')
 
 module.exports = function myAdapter(config) {
   // At this point:
@@ -229,8 +224,7 @@ module.exports = function myAdapter(config) {
   // Make the request using config provided
   // Upon response settle the Promise
 
-  return new Promise(function(resolve, reject) {
-
+  return new Promise(function (resolve, reject) {
     // example
     // var requestData
     // var request = new XMLHttpRequest();
@@ -241,15 +235,15 @@ module.exports = function myAdapter(config) {
       statusText: request.statusText,
       headers: responseHeaders,
       config: config,
-      request: request
-    };
+      request: request,
+    }
 
-    settle(resolve, reject, response);
+    settle(resolve, reject, response)
 
     // From here:
     //  - response transformers will run
     //  - response interceptors will run
-  });
+  })
 }
 ```
 
@@ -265,14 +259,14 @@ module.exports = function myAdapter(config) {
 参考[设计理论](###设计理论), 对比以下示例，非常容易理解拦截器的大体设计
 
 ```js
-axios.interceptors.request.use(requestResolve1, requestReject1);
-axios.interceptors.request.use(requestResolve2, requestReject2);
-axios.interceptors.response.use(responseResolve1, responseReject1);
-axios.interceptors.response.use(responseResolve2, responseReject2);
+axios.interceptors.request.use(requestResolve1, requestReject1)
+axios.interceptors.request.use(requestResolve2, requestReject2)
+axios.interceptors.response.use(responseResolve1, responseReject1)
+axios.interceptors.response.use(responseResolve2, responseReject2)
 
 // 拦截器不要返回数据，依然返回 AxiosResponse 对象
 
-axios(config).then(thenBlock).catch(catchBlock);
+axios(config).then(thenBlock).catch(catchBlock)
 
 // equals to
 
@@ -282,7 +276,8 @@ Promise.resolve(config)
   .then(dispatchRequest, undefined)
   .then(responseResolve1, responseReject1)
   .then(responseResolve2, responseReject2)
-  .then(thenBlock).catch(catchBlock);
+  .then(thenBlock)
+  .catch(catchBlock)
 ```
 
 注意：
@@ -291,11 +286,11 @@ The real request is not sent immediately when you call `axios(config)`, because 
 
 ```js
 // 有点类似如下的写法
-axios(config);
+axios(config)
 
 setTimeout(function () {
   // do time-consumed tasks in next event loop
-});
+})
 
 // 所以，避免在 axios 调用后做同步耗时的任务
 ```
@@ -384,13 +379,15 @@ setTimeout(function () {
 从 `v0.22.0` 开始，Axios 支持以 fetch API 方式 —— `AbortController` 取消请求
 
 ```js
-const controller = new AbortController();
+const controller = new AbortController()
 
-axios.get('/foo/bar', {
-  signal: controller.signal
-}).then(function(response) {
-  // ...
-});
+axios
+  .get('/foo/bar', {
+    signal: controller.signal,
+  })
+  .then(function (response) {
+    // ...
+  })
 // 取消请求
 controller.abort()
 ```
@@ -401,7 +398,6 @@ controller.abort()
 
 您还可以使用 cancel token 取消一个请求。
 
-
 > Axios 的 cancel token API 是基于**可取消 Promise 提案（[cancelable promises proposal](https://github.com/tc39/proposal-cancelable-promises)）**来实现的（该提案已被撤销） 。
 > 此 cancel token API 从 `v0.22.0` 开始已被弃用，不应在新项目中使用。
 
@@ -409,32 +405,38 @@ controller.abort()
 
 ```js
 // 在过渡期间，您可以使用这两种取消 API，即使是针对同一个请求：
-const controller = new AbortController();
+const controller = new AbortController()
 
-const CancelToken = axios.CancelToken;
-const source = CancelToken.source();
+const CancelToken = axios.CancelToken
+const source = CancelToken.source()
 
-axios.get('/user/12345', {
-  cancelToken: source.token,
-  signal: controller.signal
-}).catch(function (thrown) {
-  if (axios.isCancel(thrown)) {
-    console.log('Request canceled', thrown.message);
-  } else {
-    // 处理错误
-  }
-});
+axios
+  .get('/user/12345', {
+    cancelToken: source.token,
+    signal: controller.signal,
+  })
+  .catch(function (thrown) {
+    if (axios.isCancel(thrown)) {
+      console.log('Request canceled', thrown.message)
+    } else {
+      // 处理错误
+    }
+  })
 
-axios.post('/user/12345', {
-  name: 'new name'
-}, {
-  cancelToken: source.token
-})
+axios.post(
+  '/user/12345',
+  {
+    name: 'new name',
+  },
+  {
+    cancelToken: source.token,
+  },
+)
 
 // 取消请求 (message 参数是可选的)
-source.cancel('Operation canceled by the user.');
+source.cancel('Operation canceled by the user.')
 // 或
-controller.abort(); // 不支持 message 参数
+controller.abort() // 不支持 message 参数
 ```
 
 关于 [cancelable promises](https://github.com/whatwg/fetch/issues/447) 提案已撤销
@@ -442,7 +444,7 @@ controller.abort(); // 不支持 message 参数
 axios 的核心逻辑实现在这里 https://github.com/axios/axios/blob/master/lib/core/dispatchRequest.js#L12
 
 ```js
-var outerCancelFn;
+var outerCancelFn
 
 config.cancelToken = new CancelToken(function executor(cancelFn) {
   // 1. A Promise will be created in the constructor,
@@ -464,7 +466,7 @@ config.cancelToken = new CancelToken(function executor(cancelFn) {
   // Why can it cancel the request?
   // 1. `dispatchRequest` will check the member field of CancelToken, and throw it if found
   // 2. adapters will wait the Promise to be resolved, and throw the resolved value
-  outerCancelFn = cancelFn;
+  outerCancelFn = cancelFn
 })
 ```
 
@@ -480,52 +482,52 @@ config.cancelToken = new CancelToken(function executor(cancelFn) {
 核心代码
 
 ```js
-var resolvePromise;
+var resolvePromise
 
 this.promise = new Promise(function promiseExecutor(resolve) {
-  resolvePromise = resolve;
-});
+  resolvePromise = resolve
+})
 
-var token = this;
+var token = this
 
 // eslint-disable-next-line func-names
-this.promise.then(function(cancel) {
-  if (!token._listeners) return;
+this.promise.then(function (cancel) {
+  if (!token._listeners) return
 
-  var i = token._listeners.length;
+  var i = token._listeners.length
 
   while (i-- > 0) {
-    token._listeners[i](cancel);
+    token._listeners[i](cancel)
   }
-  token._listeners = null;
-});
+  token._listeners = null
+})
 
 // https://github.com/axios/axios/blob/main/lib/cancel/CancelToken.js#L37~L50
 // L37~L50 是不必要的，保留是为了向前兼容，解释:
 //    https://github.com/axios/axios/pull/3305/files#r947912940
 // 问题: 是先运行上面的 then 方法，还是先运行下面的 then 赋值?
 // eslint-disable-next-line func-names
-this.promise.then = function(onfulfilled) {
-  var _resolve;
+this.promise.then = function (onfulfilled) {
+  var _resolve
   // eslint-disable-next-line func-names
-  var promise = new Promise(function(resolve) {
-    token.subscribe(resolve);
-    _resolve = resolve;
-  }).then(onfulfilled);
+  var promise = new Promise(function (resolve) {
+    token.subscribe(resolve)
+    _resolve = resolve
+  }).then(onfulfilled)
 
   promise.cancel = function reject() {
-    token.unsubscribe(_resolve);
-  };
+    token.unsubscribe(_resolve)
+  }
 
-  return promise;
-};
+  return promise
+}
 ```
 
 验证 demo
 
 ### 数据安全 CSRF 防御
 
-Axios 内部是使用 **双重 Cookie 防御** 的方案来防御 CSRF 攻击，利用CSRF攻击不能获取到用户Cookie的特点。
+Axios 内部是使用 **双重 Cookie 防御** 的方案来防御 CSRF 攻击，利用 CSRF 攻击不能获取到用户 Cookie 的特点。
 
 ```js
   xsrfCookieName: 'XSRF-TOKEN',
@@ -565,12 +567,13 @@ Axios 内部是使用 **双重 Cookie 防御** 的方案来防御 CSRF 攻击，
   - [axios-mock-adapter](https://github.com/ctimmerm/axios-mock-adapter)
   - mocha-axios
 - React 和 Redux
+
   - axios-hooks
   - react-hooks-axios
   - redux-axios-middleware
 
 - 其他
-  - [ky](https://www.npmjs.com/package/ky) 基于 Fetch API, 支持现代浏览器和Deno
+  - [ky](https://www.npmjs.com/package/ky) 基于 Fetch API, 支持现代浏览器和 Deno
     - Node.js，请查看 [Got](https://github.com/sindresorhus/got)
     - 同构需求，请查看 [ky-universal](https://www.npmjs.com/package/got)
   - [node-libcurl](https://www.npmjs.com/package/node-libcurl)
@@ -611,22 +614,20 @@ Axios 内部是使用 **双重 Cookie 防御** 的方案来防御 CSRF 攻击，
 
 扩展 axios 能力
 
-- axios-tools
-  - axios-taro-adapter
-  - axios-uniapp-adapter
-  - axios-retry-enhancer
-  - axios-throttle-enhancer
-  - axios-cache-enhancer
+- axios-taro-adapter
+- axios-uniapp-adapter
+- axios-retry-enhancer
+- axios-throttle-enhancer
+- axios-cache-enhancer
 
 ### Promise 链式写法
 
 使用 Promise 链式写法的一个缺点是我们无法访问每个回调函数的作用域（或者其中未返回的的变量），你可以阅读 Alex Rauschmayer 博士这篇 [a great article](https://2ality.com/2017/08/promise-callback-data-flow.html) 来解决这个问题。
 
-
 参考：
 
 - [代码沙盒，能运行多种语言，且可以添加依赖](https://codesandbox.io/)
-- [Axios部分源码解析--拦截器](https://github.com/AttemptWeb/Record/issues/26)
+- [Axios 部分源码解析--拦截器](https://github.com/AttemptWeb/Record/issues/26)
 - [不要再被误导了，封装 Axios 只看这一篇文章就行了](https://juejin.cn/post/7053471988752318472)
   - 拦截器不要返回数据，依然返回 AxiosResponse 对象
-- [前端安全系列（二）：如何防止CSRF攻击？](https://tech.meituan.com/2018/10/11/fe-security-csrf.html)
+- [前端安全系列（二）：如何防止 CSRF 攻击？](https://tech.meituan.com/2018/10/11/fe-security-csrf.html)

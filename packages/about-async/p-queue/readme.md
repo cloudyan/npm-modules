@@ -10,4 +10,7 @@ Promise queue with concurrency control
 - p-queue
 - p-throttle
 - p-limit
+  - 解析：https://juejin.cn/post/7127831645167550471
+- yocto-queue
+  - 解析：https://juejin.cn/post/7116333717152333861
 

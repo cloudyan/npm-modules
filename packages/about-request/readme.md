@@ -17,7 +17,6 @@ fetch vs axios
 - fetch 的响应更原始，axios 的响应更容易阅读调试
 - response.json() 是一个异步操作，取出所有内容，并将其转为 JSON 对象。
 
-
 ### [fetch 兼容性](https://caniuse.com/fetch)
 
 - safari 10.3+
@@ -56,14 +55,14 @@ fetch vs axios
   - basic：普通请求，即同源请求。
   - cors：跨域请求。
   - error：网络错误，主要用于 Service Worker。
-  - opaque：如果fetch()请求的type属性设为no-cors，就会返回这个值，详见请求部分。表示发出的是简单的跨域请求，类似`<form>`表单的那种跨域请求。
-  - opaqueredirect：如果fetch()请求的redirect属性设为manual，就会返回这个值，详见请求部分。
+  - opaque：如果 fetch()请求的 type 属性设为 no-cors，就会返回这个值，详见请求部分。表示发出的是简单的跨域请求，类似`<form>`表单的那种跨域请求。
+  - opaqueredirect：如果 fetch()请求的 redirect 属性设为 manual，就会返回这个值，详见请求部分。
 - Response.redirected [boolean] 请求是否发生过跳转
 - Response.headers 指向一个 Headers 对象，对应 HTTP 回应的所有标头。
   - 可以使用`for...of`循环进行遍历
 - Response.body 属性是 Response 对象暴露出的底层接口，返回一个 ReadableStream 对象，供用户操作。
   - 可以用来分块读取内容，应用之一就是显示下载的进度。
-  - response.body.getReader()方法返回一个遍历器。这个遍历器的read()方法每次返回一个对象，表示本次读取的内容块。
+  - response.body.getReader()方法返回一个遍历器。这个遍历器的 read()方法每次返回一个对象，表示本次读取的内容块。
 
 fetch()发出请求以后，有一个很重要的注意点：只有网络错误，或者无法连接时，fetch()才会报错，其他情况都不会报错，而是认为请求成功。
 
@@ -79,10 +78,9 @@ Response 对象根据服务器返回的不同类型的数据，提供了不同�
 
 Stream 对象只能读取一次，读取完就没了。这意味着，上面的五个读取方法，只能使用一个，否则会报错。
 
-Response 对象提供Response.clone()方法，创建Response对象的副本，实现多次读取。
+Response 对象提供 Response.clone()方法，创建 Response 对象的副本，实现多次读取。
 
-Response 对象还有一个Response.redirect()方法，用于将 Response 结果重定向到指定的 URL。该方法一般只用在 Service Worker 里面
-
+Response 对象还有一个 Response.redirect()方法，用于将 Response 结果重定向到指定的 URL。该方法一般只用在 Service Worker 里面
 
 参考文档
 
