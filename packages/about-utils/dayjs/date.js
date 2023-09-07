@@ -2,11 +2,13 @@ const dayjs = require('dayjs')
 const quarterOfYear = require('dayjs/plugin/quarterOfYear')
 const weekday = require('dayjs/plugin/weekday')
 const localeData = require('dayjs/plugin/localeData')
+const customParseFormat = require('dayjs/plugin/customParseFormat');
 
 dayjs.extend(weekday)
 dayjs.extend(quarterOfYear)
 // Fix: caught TypeError: clone2.localeData is not a function
 dayjs.extend(localeData)
+dayjs.extend(customParseFormat);
 
 // shortcuts 选择时间点
 // ranges 选择时间范围
