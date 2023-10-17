@@ -45,7 +45,7 @@
   - [x] [【vue2/shared】中的工具函数](./packages/about-framework/vue2/vue2-shared.md)
   - [x] [【vue3/shared】中的工具函数](./packages/about-framework/vue3/vue3-shared.md)
 - about-hooks
-  - [ ] ahooks
+  - [ ] [【ahooks】自定义 hooks](./packages/about-hooks/readme.md)
 - about-npm
   - [x] [【validate-npm-package-name】检测 npm 包是否符合标准](./packages/about-npm/validate-npm-package-name/readme.md)
   - [x] [【only-allow】一行代码统一规范团队包管理器的神器](./packages/about-npm/only-allow/readme.md)

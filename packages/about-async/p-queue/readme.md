@@ -14,3 +14,4 @@ Promise queue with concurrency control
 - yocto-queue
   - 解析：https://juejin.cn/post/7116333717152333861
 
+详细解析参见 https://deepjs.cn/handwrite/my-promise/
